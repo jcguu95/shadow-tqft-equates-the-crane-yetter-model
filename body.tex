@@ -1,34 +1,94 @@
 \section{Introduction}
 
-[..]
++ $4$-manifolds are nice and interesting.
+
++ Want simplicial invariants for $4$-manifolds.
+
++ There are two state sums.
+
++ It would be a nice miracle if they differ.
+
++ We prove that such miracle is just a dream.
 
 \section{Algebra $(A)$}
-\subsection{Premodular Category}
+\subsection{Premodular category}
 + idea
 + data
 + usual notations: $I$, $I^{\star}$, $v_{i}'$..
-\subsection{Graphical Calculus}
+\subsection{Graphical calculus}
 \subsection{$6$j-symbol, $10$j-symbol, and $15$j-symbol}
 normalized $6$j symbol..
 \subsection{Example}
 tables in appendix?
 
 \section{Topology $(T)$}
+\subsection{$4$-manifold}
+Manifolds in real dimension four are of interest because their
+wildness, witnessed in the following examples:
+
+\begin{enumerate}
+  \item Real dimension $4$ is the first dimension in which the
+        topological structure, the piecewise-linear structure,
+        and the smooth structure cease to coincide.
+  \item The euclidean space $\mathbb{R}^{n}$ has exactly one
+        smooth structure (up to diffeomorphism) for each
+        non-negative integer $n$ except for $(n=4)$, in which
+        case (strictly) more than a countably infinite worth of
+        inequivalent structures exist \cite{?}.
+  \item The Poincare conjecture for the $n$-dimensional sphere
+        $S^{n}$ has been resolved except for $n=4$, which remains
+        widely open to date \cite{?}.
+  \item The physical universe in which we live seems to be
+        well-modeled by a $4$-manifold.
+\end{enumerate}
+
+Despite the wildness, Kirby and Siebenmann
+\cite{kirby-siebenmann} \cite{turaev-qiok-3-manifolds} show that
+the category of smooth manifolds is equivalent to the category of
+piecewise-linear manifolds. The data of the later are much
+smaller and more elegant. Thus really we will be working on the
+piecewise-linear cases, and hence by a manifold we mean a
+piecewise-linear, oriented and closed manifold in real dimension
+$4$ unless further specified. Readers who are uncomfortable with
+the result of Kirby-Siebenmann can treat this entire work as one
+about piecewise-linear manifolds instead of the smooth manifolds.
+
 \subsection{Triangulation}
-+ Basic data
-+ Pachner moves
-\subsection{Handle Decomposition}
-+ cf Walker's universal state sum.
+
+The standard
+oriented $4$-simplex is defined to be following topological
+subspace (with natural orientation)
+$$\Delta = \Delta_{4} = \left\{x \in [0,1]^{5} \,|\, \sum x_{i} = 1 \right\}.$$
+By a triangulated ($4$-)space we mean a finite collection of
+copies of $\Delta$ with a finite collection of (affine and
+oriented) identifications of the pairs of distinct faces. Clearly
+an oriented topological space canonically arises from a
+triangulated space. We shall confuse both of them. By a
+triangulation of a $4$-manifold $X$ we mean a pair of
+triangulated space $X'$ and a piecewise-linear homeomorphism
+$X \simeq X'$. Two triangulated $4$-spaces give rise to the same
+manifold (up to diffeomorphism) if and only if both gluing data
+can be relate by a finite sequence of Pachner basic moves
+\cite{?}. Thus we can present a smooth $4$-manifold (up to
+diffeomorphism) by a gluing datum (up to Pachner moves). As we
+will see, the Crane-Yetter state sum transforms the gluing datum
+into a number.
+
+\subsection{Handle decomposition}
+By Morse's theory of extremal points, any smooth manifold admits
+a handle decomposition. By Cerf theory, two handle decompositions
+present the same manifold (up to diffeomorphism) if and only if
+both decomposition data are related by a finite sequence of
+handle creations, handle annihilations, and handle slides
+\cite{?}. A triangulation of a manifold admits a natural handle
+decomposition by taking dual. The correct state sum is the
+universal state sum \cite{?}; it transforms the decomposition
+datum into a number.
+
 \subsection{Shadow}
 + Shadow in general
-\subsection{$4$-manifold}
-+ Convention: oriented, closed, smooth.
-+ Mention smooth = PL and provide a solid reference.
-+ Data 1: triangulation
-+ Data 2: handle decomposition
-+ Data 3: shadow
 
-\section{State Sum $\left( \int_{T}{A} \right)$}
+\section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
 \subsection{Shadow state sum}
-\subsection{Main result: Equivalence of both state sums}
+\subsection{Main result: equivalence of both state sums}
