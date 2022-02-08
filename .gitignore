@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.md
+!*.tex
+!*.bib
+!*.png
+!*.jpg
+!*.xopp
+!*.org
+!*Makefile
+
+# ...even if they are in subdirectories
+!*/
