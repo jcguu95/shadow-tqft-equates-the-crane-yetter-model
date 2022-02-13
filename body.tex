@@ -1,20 +1,93 @@
 \section{Introduction}
 
-+ $4$-manifolds are nice and interesting.
+Among all other dimensions, $4$D is probably the most wild.
 
-+ Want simplicial invariants for $4$-manifolds.
+To tackle, tools have been invented and examined.
 
-+ There are two state sums.
+Of particular importance and interest are QFTs.
 
-+ It would be a nice miracle if they differ.
++ Importance of QFTs
 
-+ We prove that such miracle is just a dream.
++++ Quantum invariants for knots and manifolds.
+
++++ Deep interconnection among representation theory, statistical
+physics, and combinatorics.
+
++++ Topological phase, quantum computing.. etc.
+
++++ Grand unifying scheme.
+
++ Usefulness and effectiveness (Donaldson and Seiberg-Witten)
+
+Limitations of current tools and possible strategies (shadow tqft
+remains mysterious.)
+
+Sadly, we showed that they are the same.
+
+Merit of this work
+
++ Eliminate doubts
++ Perhaps shadows are easier to work with in certain cases.
++ Survey on $4$D tqft and state sums
+
+Sections Summary
 
 \section{Algebra $(A)$}
 \subsection{Premodular category}
-+ idea
++ idea [..TODO]
+
 + data
+
+A premodular category is a spherical category that has a braided
+structure. In particular, it is semisimple, $\mathbb{k}$-linear,
+and fusion. So there the set $I$ of simple objects up to
+isomorphism is finite, and one can define a $\mathbb{Z}$-fusion
+ring from this set.
+
 + usual notations: $I$, $I^{\star}$, $v_{i}'$..
+
+We will define some useful notations mostly following
+\cite{turaev-qiok-3-manifolds}. For a fixed premodular category
+$C$, we often choose a (finite) set of objects
+$\{V_{i} | i \in I\}$ so that $V_{i} \in i$ and
+$V_{0} = \mathbb{1}$. As taking dual preserves simplicity, for
+each $i \in I$ there is a unique element (denoted $i^{\star}$) in
+$I$ such that $V_{i^{\star}}$ is isomorphic to $V_{i}^{\star}$;
+this also defines an set-involution $\star: I \to I$. We also fix
+a set of morphisms (p.313)
+$$\{\omega_{i}: V_{i} \to (V_{i^{\star}})^{\star} \,|\, i \in I\}.$$
+
+Define $H^{ijk}$ to be
+$Hom_{C}(\mathbb{1}, V_{i} \otimes V_{j} \otimes V_{k})$. (TODO:
+need to deal with strictness? Can we really use coherence theorem
+to hand-waive this issue?)
+
+Using the spherical structure, we can define for each $i \in I$
+the number $dim(i) \in \mathbb{k}$ as the trace of $id_{V_{i}}$
+and the number $\nu_{i} \in \mathbb{k}^{\star}$ as the twisting
+coefficient (which?) (p.76). We further define
+$$\Delta_{C} = \sum_{i \in I} \nu_{i}^{-1}dim(i)^{2}.$$
+
+Choose a number $D = D_{C} \in \mathbb{k}$ such that
+$D^{2} = \sum_{i \in I} dim(i)^{2}$.
+
+Further choose for each $i \in I$ a number
+$dim'(i) \in \mathbb{k}$ such that $dim'(0) = 1$,
+$dim'(i)^{2} = dim(i)$, and $dim'(i^{\star}) = dim'(i)$. Choose
+also for each $i \in I$ a number $\nu_{i}'$ such that
+$\nu_{0}' = 1$, $()\nu_{i}')^{2} = \nu_{i}$, and
+$\nu_{i^{\star}}' = \nu_{i}'$ (p.313).
+
+Notice that the data $C$ and
+$(C, \{V_{i}\}, D, \{\omega_{i}\}, dim'(i), \nu'_{i}$ are not
+equivalent. However, we will often confuse the later as a
+premodular category.
+
+Now, using $\nu_{i}'$, we can define the symmetrized hom spaces
+$H(i,j,k)$ (p313 and p314). (TODO: define it). Note that
+$H(i,j,k)=H(j,i,k)=\ldots$ are all equal as sets, instead of
+merely isomorphic to each other.
+
 \subsection{Graphical calculus}
 \subsection{$6$j-symbol, $10$j-symbol, and $15$j-symbol}
 normalized $6$j symbol..
@@ -86,7 +159,67 @@ universal state sum \cite{?}; it transforms the decomposition
 datum into a number.
 
 \subsection{Shadow}
-+ Shadow in general
+
+Idea:
+
+A shadow is another type of structure that encodes the data of a
+closed $4$-manifold. Roughly speaking, a shadow is a
+$2$-polyhedron with extra decorations (called gleams) that
+remember the twisting data. A $2$-polyhedron is a topological and
+combinatorial object that encodes $3$-dimensional manifolds
+\cite{?Matveev}. It is called a pre-foam in the modern
+literature \cite{khovanov-robert/foam}.
+
+---
+
+(TODO: Do the following again, by first define the $5$ shapes
+with numbering. And then define the $2$-p without boundary as a
+special case.)
+
+We define a $2$-polyhedron $P$ without boundary as a
+piecewise-linear compact CW-complex of real dimension two, such
+that each $p \in P$ has a neighborhood that is piecewise-linearly
+homeomorphic to either $\mathbb{R}^{2}$, the product of a tripod
+and an open interval, or the cone of the $1$-skeleton of a
+tetrahedron (TODO: figures). We call $p$ (TODO.. smooth point,
+line point,)
+
+A $2$-polyhedron with boundary can be roughly think of the
+intersection of $\mathbb{R}^{3}_{x_{1} \geq 0}$ and a
+$2$-polyhedron without boundary, where the boundary plane of the
+former intersects the later at a generic position (not
+intersecting any vertex). More formally, a $2$-polyhedron with
+boundary is defined to be a piecewise-linear compact CW-complex
+$P$ of real dimension two, such that each $p \in P$ has a
+neighborhood PL-homeomorphic to one of the spaces above, to the
+half-plane $\mathbb{R}^{2}_{\geq 0}$, or to the product of a
+tripod and $[0,1)$.
+
+(TODO: Define $Int(P)$, $sing(X)$, $\partial(X)$. The sing and
+partial intersects at the trivalent vertex in partial. And they
+union to $P - Int(P)$. Define also region $Region(P)$.)
+
+2. orientation
+
+An orientation of $P$ is an assignment of orientations to each of
+the region. $P$ is said to be orientable if each region of $P$ is
+orientable.
+
+3. Define shadow as gleamed 2-polyhedra.
+
+Given an abelian group $A$ and a distinguished element
+$\omega \in A$, we define a $(A,\omega)$-shadow to be a pair of
+an orientable $2$-polyhedron $P$ and a map (called gleam)
+$gl: Region(P) \to A$.
+
+4. Describe shadow of $4$-manifolds.
+
+We fix $A$ as the abelian group of the set of half-integers, and
+$\omega = \frak{1}{2}$.
+
+(TODO: Given a closed $4$-manifold, define skeleton of $M$.)
+
+(TODO: Then define the gleams.)
 
 \section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
