@@ -1,98 +1,221 @@
 \section{Introduction}
 
-Among all other dimensions, $4$D is probably the most wild.
+\noindent Among all other dimensions, $4$D is probably the most wild.
 
-To tackle, tools have been invented and examined.
+\noindent To tackle, tools have been invented and examined.
 
-Of particular importance and interest are QFTs.
+\noindent Of particular importance and interest are QFTs.
 
-+ Importance of QFTs
+\noindent + Importance of QFTs
 
-+++ Quantum invariants for knots and manifolds.
+\noindent +++ Quantum invariants for knots and manifolds.
 
-+++ Deep interconnection among representation theory, statistical
+\noindent +++ Deep interconnection among representation theory, statistical
 physics, and combinatorics.
 
-+++ Topological phase, quantum computing.. etc.
+\noindent +++ Topological phase, quantum computing.. etc.
 
-+++ Grand unifying scheme.
+\noindent +++ Grand unifying scheme.
 
-+ Usefulness and effectiveness (Donaldson and Seiberg-Witten)
+\noindent + Usefulness and effectiveness (Donaldson and Seiberg-Witten)
 
-Limitations of current tools and possible strategies (shadow tqft
+\noindent Limitations of current tools and possible strategies (shadow tqft
 remains mysterious.)
 
-Sadly, we showed that they are the same.
+\noindent Sadly, we showed that they are the same.
 
-Merit of this work
+\noindent Merit of this work
 
-+ Eliminate doubts
-+ Perhaps shadows are easier to work with in certain cases.
-+ Survey on $4$D tqft and state sums
+\noindent + Eliminate doubts
+\noindent + Perhaps shadows are easier to work with in certain cases.
+\noindent + Survey on $4$D tqft and state sums
 
-Sections Summary
+\noindent Sections Summary
+
+\noindent Some conventions we use (globally) in the paper:
+\begin{itemize}
+  \item We fix a algebraic closed field $\mathbb{k}$ of
+        characteristic $0$.
+  \item By a vector space $V$ we mean a finite dimensional vector
+        space over the field $\mathbb{k}$, unless further
+        specified. The linear dual
+        $Hom_{\mathbb{k}}(V,\mathbb{k})$ is denoted by
+        $V^{\star}$.
+\end{itemize}
 
 \section{Algebra $(A)$}
 \subsection{Premodular category}
-+ idea [..TODO]
 
-+ data
+The definition of a premodular category is tedious from scratch.
+Unfamiliar readers can think of a premodular category roughly as
+a higher version of the group algebra of a finite group. The
+formal definition (\ref{def/premodular-category}) can be found
+after some motivations.
 
-A premodular category is a spherical category that has a braided
-structure. In particular, it is semisimple, $\mathbb{k}$-linear,
-and fusion. So there the set $I$ of simple objects up to
-isomorphism is finite, and one can define a $\mathbb{Z}$-fusion
-ring from this set.
+Algebraic objects help abstract tedious details in various
+mathematical problems. However, they sometime abstract too much
+to recover essential information. In recent years, mathematicians
+``categorify'' algebraic objects for them to retain more
+information. For example, a (classical) ring is categorified to a
+tensor category. [TODO: Insert a reason why tensor categories are
+important.]
 
-+ usual notations: $I$, $I^{\star}$, $v_{i}'$..
+As in the classical ring theory in which rings with special
+properties were of interest, special tensor categories are too of
+special interest. For example, a fusion category is a tensor
+category that satisfies certain finiteness condition. [TODO:
+Insert a reason why fusion categories are important.] While a
+fusion category keeps tracks of time-evolution of particles on
+$\mathbb{R}^{1}$, a braided fusion category does that for
+$\mathbb{R}^{2}$, and is thus a candidate to provide quantum
+invariants of knots. A premodular category is a braided fusion
+category satisfying a coherence a condition (spherical
+structure). Examples include $Rep(G)$ (with $G$ a finite group),
+$Rep(\chi)$ (with $\chi$ a finite $2$-group), and
+$Rep(U_{q}\mathfrak{g})$ (with $\mathfrak{g}$ a semisimple Lie
+algebra, $q$ a root of unity, and $Rep$ the semisimplification of
+the category of [..?] representations).
 
-We will define some useful notations mostly following
-\cite{turaev-qiok-3-manifolds}. For a fixed premodular category
-$C$, we often choose a (finite) set of objects
-$\{V_{i} | i \in I\}$ so that $V_{i} \in i$ and
-$V_{0} = \mathbb{1}$. As taking dual preserves simplicity, for
-each $i \in I$ there is a unique element (denoted $i^{\star}$) in
-$I$ such that $V_{i^{\star}}$ is isomorphic to $V_{i}^{\star}$;
-this also defines an set-involution $\star: I \to I$. We also fix
-a set of morphisms (p.313)
-$$\{\omega_{i}: V_{i} \to (V_{i^{\star}})^{\star} \,|\, i \in I\}.$$
+\begin{definition}[premodular category]\label{def/premodular-category}
+  A premodular category is a spherical braided fusion category.
+\end{definition}
 
-Define $H^{ijk}$ to be
-$Hom_{C}(\mathbb{1}, V_{i} \otimes V_{j} \otimes V_{k})$. (TODO:
-need to deal with strictness? Can we really use coherence theorem
-to hand-waive this issue?)
-
-Using the spherical structure, we can define for each $i \in I$
-the number $dim(i) \in \mathbb{k}$ as the trace of $id_{V_{i}}$
-and the number $\nu_{i} \in \mathbb{k}^{\star}$ as the twisting
-coefficient (which?) (p.76). We further define
+\noindent In particular, a premodular category $C$ is semisimple,
+$\mathbb{k}$-linear, and fusion. Define its set of simples
+(usually denoted by $I = I_{C}$) to be the set of simple
+$C$-objects (up to isomorphism). As taking dual preserves
+simplicity, for each $i \in I$ there is a unique element
+$i^{\star}$ in $I$ such that $V_{i}^{\star} \in i^{\star}$
+whenever $V_{i} \in i$. Using the spherical structure, we can
+define for each $i \in I$ the number $dim(i) \in \mathbb{k}$ as
+the trace of $id_{V_{i}}$ and the number
+$\nu_{i} \in \mathbb{k}^{\star}$ as the twisting coefficient
+(which?) (p.76). We further define
 $$\Delta_{C} = \sum_{i \in I} \nu_{i}^{-1}dim(i)^{2}.$$
 
-Choose a number $D = D_{C} \in \mathbb{k}$ such that
-$D^{2} = \sum_{i \in I} dim(i)^{2}$.
+\noindent In order to do computations with a premodular category
+we need to choose and fix some extra data. Ultimately, all
+intrinsic results are independent of the choice.
 
-Further choose for each $i \in I$ a number
-$dim'(i) \in \mathbb{k}$ such that $dim'(0) = 1$,
-$dim'(i)^{2} = dim(i)$, and $dim'(i^{\star}) = dim'(i)$. Choose
-also for each $i \in I$ a number $\nu_{i}'$ such that
-$\nu_{0}' = 1$, $()\nu_{i}')^{2} = \nu_{i}$, and
-$\nu_{i^{\star}}' = \nu_{i}'$ (p.313).
+\begin{definition}[coordinated premodular
+  category]\label{def/coordinated-premodular-category}
+  Let $C$ be a premodular category and $I$ its (finite) set of
+  simples. Choose a number $D \in \mathbb{k}$ such that
+  $D^{2} = \sum_{i \in I} dim(i)^{2}$. Choose a set of
+  $C$-objects $\{V_{i}\}_{i \in I}$ such that $V_{i} \in i$ and
+  that $V_{0} = \mathbb{1}$, the $\otimes$-identity object.
+  Choose a set of isomorphisms [(p.313)]
+  $$\{\omega_{i}: V_{i} \to (V_{i^{\star}})^{\star}\}_{i \in I}.$$
+  Choose a set of numbers $\{dim'(i) \in \mathbb{k}\}_{i \in I}$
+  such that $dim'(0) = 1$, $dim'(i)^{2} = dim(i)$, and
+  $dim'(i^{\star}) = dim'(i)$. Choose a set of numbers
+  $\{\nu_{i}' \in \mathbb{k}\}_{i \in I}$ such that
+  $\nu_{0}' = 1$, $(\nu_{i}')^{2} = \nu_{i}$, and
+  $\nu_{i^{\star}}' = \nu_{i}'$ [(p.313)].
 
-Notice that the data $C$ and
-$(C, \{V_{i}\}, D, \{\omega_{i}\}, dim'(i), \nu'_{i}$ are not
+  Finally, such a chosen $5$-tuple
+  $d = (D, \{V_{i}\}, \{\omega_{i}\}, \{dim'(i)\}, \{\nu'_{i}\})$
+  is called a coordinate of the premodular category $C$. Such a
+  pair $(C,d)$ is called a coordinated premodular category.
+\end{definition}
+
+\noindent We stress again that the data $C$ and $(C,d)$ are not
 equivalent. However, we will often confuse the later as a
-premodular category.
+premodular category because all intrinsic results are independent
+of the choice of $d$.
 
-Now, using $\nu_{i}'$, we can define the symmetrized hom spaces
-$H(i,j,k)$ (p313 and p314). (TODO: define it). Note that
-$H(i,j,k)=H(j,i,k)=\ldots$ are all equal as sets, instead of
-merely isomorphic to each other.
+\begin{definition}[multiplicity module]\label{def/multiplicity-module}
+  Let $C$ be a premodular category and $I$ its set of simples.
+  Respectively, define $H^{ijk}$, $H_{k}^{ij}$, and $H_{ij}^{k}$
+  to be the $\mathbb{k}$-modules
+  $Hom_{C}(\mathbb{1}, V_{i} \otimes V_{j} \otimes V_{k})$,
+  $Hom_{C}(V_{k}, V_{i} \otimes V_{j})$, and
+  $Hom_{C}(V_{i} \otimes V_{j}, V_{k})$.
+\end{definition}
 
-\subsection{Graphical calculus}
+% \noindent [TODO: need to deal with strictness? Can we really
+% use
+% coherence theorem to hand-waive this issue?] \\
+
+\noindent Recall that the natural pairing
+$\left( H^{ij}_{k} \otimes_{\mathbb{k}} H_{ij}^{k} \to Hom_{C}(V_{k},V_{k}) \xrightarrow{tr} \mathbb{k} \right)$
+is nondegenerate by the semisimplicity of $C$. The braided
+structure of $C$ guarantees that the $\mathbb{k}$-modules
+$H^{ijk}$, $H^{ikj}$, $H^{jik}$, $H^{jki}$, $H^{kij}$, $H^{kji}$
+are all isomorphic. In category theory, we must carefully
+distinguish equalities from isomorphicities, hence we introduce a
+way to keep track of the isomorphisms among the $H^{ijk}$'s.
+
+\begin{definition}[canonical isomorphisms]\label{def/canonical-isomorphism}
+  Let $C$ be a premodular category, $c$ its braided structure,
+  $I$ its set of simples, and $(i,j,k) \in I^{3}$. Define the
+  canonical isomorphisms
+  $H^{ijk} \xrightarrow{\sigma_{1}(ijk)} H^{jik}$ and
+  $H^{ijk} \xrightarrow{\sigma_{2}(ijk)} H^{ikj}$ by
+  $$\sigma_{1}(ijk): \phi \mapsto \nu_{i}'\nu_{j}'(\nu_{k}')^{-1}(c_{V_{i}, V_{j}} \otimes id_{V_{k}})\phi,$$
+  $$\sigma_{2}(ijk): \phi \mapsto \nu_{j}'\nu_{k}'(\nu_{i}')^{-1}(id_{V_{i}} \otimes c_{V_{j}, V_{k}})\phi.$$
+\end{definition}
+
+\noindent It is a simple exercise in the theory of tensor
+categories to check that
+\begin{equation} \label{eq1}
+  \begin{split}
+    \sigma_{1}(jik)\sigma_{1}(ijk) & = id, \\
+    \sigma_{2}(ikj)\sigma_{2}(ijk) & = id, \\
+    \sigma_{1}(jki)\sigma_{2}(jik)\sigma_{1}(ijk) & = \sigma_{2}(kij)\sigma_{1}(ikj)\sigma_{2}(ijk)
+  \end{split}
+\end{equation}
+so $\sigma_{1}$ and $\sigma_{2}$ specify the isomorphisms among
+the six $\mathbb{k}$-modules.
+
+\begin{definition}[symmetrized multiplicity module]\label{def/symmetrized-multiplicity-module}
+  Let $C$ be a premodular category, $I$ its set of simples, and
+  $i, j, k \in I$. Define the symmetrized multiplicity module
+  $H(i,j,k)$ to be the $\mathbb{k}$-module consisting of
+  functions $\phi$ that assign an element
+  $\phi^{i_{1}i_{2}i_{3}} \in H^{i_{1}i_{2}i_{3}}$ to each
+  ordering $(i_{1}, i_{2}, i_{3})$ of the set $\{i, j, k\}$.
+\end{definition}
+
+\noindent We stress that all the symmetrized modules
+$H(i,j,k), H(i,k,j), H(j,i,k)$, $H(j,k,i), H(k,i,j), H(k,j,i)$
+are all \textit{equal as sets}.
+
 \subsection{$6$j-symbol, $10$j-symbol, and $15$j-symbol}
-normalized $6$j symbol..
-\subsection{Example}
-tables in appendix?
+
+\begin{definition}[$6$j-symbol]\label{def/6j-symbol}
+  For each $(i,j,k,l,m,n) \in I^{6}$, we define the (normalized)
+  $6$j symbol
+  $$
+  \begin{vmatrix}
+    i & j & k  \\
+    l & m & n  \\
+  \end{vmatrix}
+  $$
+  to be the invariant of framed graph (cf \cite[section
+  VI.4]{turaev-qiok-3-manifolds})
+  $\mathbb{F}(\Gamma) \in Hom_{\mathbb{k}}(M, \mathbb{k})$, where
+  $\Gamma$ denotes the graph depicts in [TODO: graphic? Add
+  graphic.], and $M$ denotes the non-ordered tensor product over
+  $\mathbb{k}$ of the $\mathbb{k}$-modules
+  $H(i^{\star}, j^{\star}, k)$, $H(i, m^{\star}, n)$,
+  $H(j, l, n^{\star})$, $H(k^{\star}, l^{\star}, m)$.
+\end{definition}
+
+\begin{proposition}
+  [TODO: Layout basic equalities for 6j symbols.]
+\end{proposition}
+
+\begin{definition}[$10$j-symbol]\label{def/10j-symbol}
+  [TODO]
+\end{definition}
+
+\begin{definition}[$15$j-symbol]\label{def/15j-symbol}
+  [TODO]
+\end{definition}
+
+% \subsection{Example}
+% tables in appendix?
 
 \section{Topology $(T)$}
 \subsection{$4$-manifold}
@@ -115,7 +238,7 @@ wildness, witnessed in the following examples:
         well-modeled by a $4$-manifold.
 \end{enumerate}
 
-Despite the wildness, Kirby and Siebenmann
+\noindent Despite the wildness, Kirby and Siebenmann
 \cite{kirby-siebenmann} \cite{turaev-qiok-3-manifolds} show that
 the category of smooth manifolds is equivalent to the category of
 piecewise-linear manifolds. The data of the later are much
@@ -128,9 +251,8 @@ about piecewise-linear manifolds instead of the smooth manifolds.
 
 \subsection{Triangulation}
 
-The standard
-oriented $4$-simplex is defined to be following topological
-subspace (with natural orientation)
+\noindent The standard oriented $4$-simplex is defined to be
+following topological subspace (with natural orientation)
 $$\Delta = \Delta_{4} = \left\{x \in [0,1]^{5} \,|\, \sum x_{i} = 1 \right\}.$$
 By a triangulated ($4$-)space we mean a finite collection of
 copies of $\Delta$ with a finite collection of (affine and
@@ -148,78 +270,100 @@ will see, the Crane-Yetter state sum transforms the gluing datum
 into a number.
 
 \subsection{Handle decomposition}
-By Morse's theory of extremal points, any smooth manifold admits
-a handle decomposition. By Cerf theory, two handle decompositions
-present the same manifold (up to diffeomorphism) if and only if
-both decomposition data are related by a finite sequence of
-handle creations, handle annihilations, and handle slides
-\cite{?}. A triangulation of a manifold admits a natural handle
-decomposition by taking dual. The correct state sum is the
-universal state sum \cite{?}; it transforms the decomposition
-datum into a number.
+
+\noindent By Morse's theory of extremal points, any smooth
+manifold admits a handle decomposition. By Cerf theory, two
+handle decompositions present the same manifold (up to
+diffeomorphism) if and only if both decomposition data are
+related by a finite sequence of handle creations, handle
+annihilations, and handle slides \cite{?}. A triangulation of a
+manifold admits a natural handle decomposition by taking dual.
+The correct state sum is the universal state sum \cite{?}; it
+transforms the decomposition datum into a number.
 
 \subsection{Shadow}
 
-Idea:
-
-A shadow is another type of structure that encodes the data of a
-closed $4$-manifold. Roughly speaking, a shadow is a
+\noindent A shadow is another type of structure that encodes the
+data of a closed $4$-manifold. Roughly speaking, a shadow is a
 $2$-polyhedron with extra decorations (called gleams) that
 remember the twisting data. A $2$-polyhedron is a topological and
 combinatorial object that encodes $3$-dimensional manifolds
-\cite{?Matveev}. It is called a pre-foam in the modern
-literature \cite{khovanov-robert/foam}.
+\cite{?Matveev}. It is called a pre-foam in the modern literature
+\cite{khovanov-robert/foam}.
 
----
+\begin{definition}[tripod]\label{def/tripod}
+  Define the standard tripod to be the topological subspace of
+  $\mathbb{R}^{3}$ consisting of the points $(x,y,z)$ such that
+  at least two of the entries are zero, and the last entry
+  belongs to $[0,1)$. Define a tripod to be any topological space
+  homeomorphic to the standard tripod.
+\end{definition}
 
-(TODO: Do the following again, by first define the $5$ shapes
-with numbering. And then define the $2$-p without boundary as a
-special case.)
+\begin{definition}[cone]\label{def/cone}
+  For each topological space $X$, define its standard open cone
+  $cone(X)$ to be the quotient space
+  $(X \times \mathbb{R_{\geq 0}})/((x,0) \sim (x',0)).$ Define an
+  open cone of $X$ to be any topological space homeomorphic to
+  $cone(X)$.
+\end{definition}
 
-We define a $2$-polyhedron $P$ without boundary as a
-piecewise-linear compact CW-complex of real dimension two, such
-that each $p \in P$ has a neighborhood that is piecewise-linearly
-homeomorphic to either $\mathbb{R}^{2}$, the product of a tripod
-and an open interval, or the cone of the $1$-skeleton of a
-tetrahedron (TODO: figures). We call $p$ (TODO.. smooth point,
-line point,)
+\begin{definition}[local shape]\label{def/local-shape}
+  Let $X$ be a topological space and $x \in X$. Denote by $T$ the
+  standard tripod and $S$ the $1$-skeleton of the boundary of the
+  standard tetrahedron (a trivalent graph with $4$ vertices and
+  $6$ edges). Respectively, we say that $x$ is a smooth point, a
+  line point, a tetrahedral point, a boundary smooth point, or a
+  boundary line point of $X$ if it has a relative neighborhood
+  homeomorphic to $(\mathbb{R}^{2},0)$,
+  $(T \times \mathbb{R}, (0, 0))$, $(cone(S), (*, 0))$,
+  $(\mathbb{R} \times \mathbb{R}_{\geq 0}, (0, 0))$, or
+  $(T \times \mathbb{R}_{\geq 0}, (0, 0))$.
+\end{definition}
 
-A $2$-polyhedron with boundary can be roughly think of the
-intersection of $\mathbb{R}^{3}_{x_{1} \geq 0}$ and a
-$2$-polyhedron without boundary, where the boundary plane of the
-former intersects the later at a generic position (not
-intersecting any vertex). More formally, a $2$-polyhedron with
-boundary is defined to be a piecewise-linear compact CW-complex
-$P$ of real dimension two, such that each $p \in P$ has a
-neighborhood PL-homeomorphic to one of the spaces above, to the
-half-plane $\mathbb{R}^{2}_{\geq 0}$, or to the product of a
-tripod and $[0,1)$.
+\begin{definition}[simple $2$-polyhedron]\label{def/simple-2-polyhedron}
+  A simple $2$-polyhedron with boundary is defined to be a
+  piecewise-linear compact CW-complex $P$ of real dimension two,
+  such that each of its point $p$ is either a smooth point, a
+  line point, a tetrahedral point, a boundary smooth point, or a
+  boundary line point. If only the first three types are
+  involved, we call $P$ a simple $2$-polyhedron without boundary.
+\end{definition}
 
-(TODO: Define $Int(P)$, $sing(X)$, $\partial(X)$. The sing and
-partial intersects at the trivalent vertex in partial. And they
-union to $P - Int(P)$. Define also region $Region(P)$.)
+\begin{definition}[components of a simple $2$-polyhedron]\label{def/components-of-a-simple-2-polyhedron}
+  Let $P$ be a simple $2$-polyhedron with boundary. Define the
+  set of smooth points (or called interior points) of $P$ to be
+  $Int(P)$. Define the set of line points, tetrahedral points,
+  and boundary line points to be $sing(P)$. Define the set of
+  boundary line points and boundary smooth points to be
+  $\partial P$. Call a connected component of $Int(P)$ to be a
+  region of $P$; define the set of regions to be $Region(P)$. $P$
+  is said to be orientable if each region of $P$ is orientable.
+  An orientation of $P$ is an assignment of orientations to each
+  of the region.
+\end{definition}
 
-2. orientation
+\begin{definition}[shadow]\label{def/shadow}
+  Let $P$ be a simple $2$-polyhedron, and $A$ an abelian group
+  with a distinguished element $\omega \in A$. We define a shadow
+  to be a pair of an orientable $2$-polyhedron $P$ and a map
+  (called gleam) $gl: Region(P) \to A$. Unless specified further,
+  we assume that $A = \mathbb{Z}[\frac{1}{2}]$ and
+  $\omega = \frac{1}{2}$.
+\end{definition}
 
-An orientation of $P$ is an assignment of orientations to each of
-the region. $P$ is said to be orientable if each region of $P$ is
-orientable.
+\begin{definition}[shadow moves]\label{def/shadow-moves}
+  [TODO]
+\end{definition}
 
-3. Define shadow as gleamed 2-polyhedra.
+\begin{definition}[skeleton of a $4$-manifold]\label{def/skeleton-of-a-4-manifold}
+  [TODO]
+  Let $X$ be a closed $4$-manifold.
+\end{definition}
 
-Given an abelian group $A$ and a distinguished element
-$\omega \in A$, we define a $(A,\omega)$-shadow to be a pair of
-an orientable $2$-polyhedron $P$ and a map (called gleam)
-$gl: Region(P) \to A$.
-
-4. Describe shadow of $4$-manifolds.
-
-We fix $A$ as the abelian group of the set of half-integers, and
-$\omega = \frak{1}{2}$.
-
-(TODO: Given a closed $4$-manifold, define skeleton of $M$.)
-
-(TODO: Then define the gleams.)
+\begin{definition}[shadow of a $4$-manifold]\label{def/shadow-of-a-4-manifold}
+  [TODO]
+  Let $X$ be a closed $4$-manifold.
+\end{definition}
 
 \section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
