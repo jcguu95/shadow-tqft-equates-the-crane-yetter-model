@@ -27,12 +27,18 @@ remains mysterious.)
 \noindent Merit of this work
 
 \noindent + Eliminate doubts
-\noindent + Perhaps shadows are easier to work with in certain cases.
+\noindent + Aims to be a thinner introduction to (a part of)
+Turaev's book.
 \noindent + Survey on $4$D tqft and state sums
+\noindent + It's known from Reutter's work that a semisimple
+category won't give interesting invariant. More general algebras
+are needed, and perhaps in some cases shadows could be easier to
+work with.
 
 \noindent Sections Summary
 
 \noindent Some conventions we use (globally) in the paper:
+[TODO: make an environment for Conventions?]
 \begin{itemize}
   \item We fix a algebraic closed field $\mathbb{k}$ of
         characteristic $0$.
@@ -42,6 +48,9 @@ remains mysterious.)
         $Hom_{\mathbb{k}}(V,\mathbb{k})$ is denoted by
         $V^{\star}$.
 \end{itemize}
+
+[TODO: Notes to expert: Use a paragraph to explain what the news
+things in this work are.]
 
 \section{Algebra $(A)$}
 \subsection{Premodular category}
@@ -181,17 +190,37 @@ the six $\mathbb{k}$-modules.
 $H(i,j,k), H(i,k,j), H(j,i,k)$, $H(j,k,i), H(k,i,j), H(k,j,i)$
 are all \textit{equal as sets}.
 
+\begin{definition}[contraction]\label{def/contraction}
+  Let $C$ be a (coordinated) premodular category, $I$ its set of
+  simples, and $i, j, k \in I$. Define the contraction map
+  $H^{ijk} \otimes H^{k^{\star}j^{\star}i^{\star}} \to \mathbb{k}$
+  by the following diagram [TODO: insert diagram as in qiok
+  figure VI.3.5]. Denote the canonically induced contraction map
+  on the symmetrized modules to be (p.334)
+  $$\ast_{ijk}: H(i,j,k) \otimes_{\mathbb{k}} H(i^{\star}, j^{\star}, k^{\star}) \to \mathbb{k}.$$
+  This defines a nondegenerate pairing on the domain of
+  $\ast_{ijk}$ and thus also induces a canonical element
+  $Id(i,j,k)$ there (p.333).
+\end{definition}
+
+\noindent When there is little danger of confusion, we will abuse
+notation by denoting natural contractions from the non-ordered
+tensor products
+$V \otimes_{\mathbb{k}} H(i,j,k) \otimes_{\mathbb{k}} H(i^{\star}, j^{\star}, k^{\star})$
+to $\mathbb{k}$ by $\ast_{ijk}$ where $V$ is any
+$\mathbb{k}$-module.
+
 \subsection{$6$j-symbol, $10$j-symbol, and $15$j-symbol}
+
+\newcommand{\sixJSymbol}[6]{\begin{vmatrix}
+  #1 & #2 & #3 \\
+  #4 & #5 & #6 \\
+\end{vmatrix}}
 
 \begin{definition}[$6$j-symbol]\label{def/6j-symbol}
   For each $(i,j,k,l,m,n) \in I^{6}$, we define the (normalized)
   $6$j symbol
-  $$
-  \begin{vmatrix}
-    i & j & k  \\
-    l & m & n  \\
-  \end{vmatrix}
-  $$
+  $$\sixJSymbol{i}{j}{k}{l}{m}{n}$$
   to be the invariant of framed graph (cf \cite[section
   VI.4]{turaev-qiok-3-manifolds})
   $\mathbb{F}(\Gamma) \in Hom_{\mathbb{k}}(M, \mathbb{k})$, where
@@ -202,9 +231,67 @@ are all \textit{equal as sets}.
   $H(j, l, n^{\star})$, $H(k^{\star}, l^{\star}, m)$.
 \end{definition}
 
-\begin{proposition}
-  [TODO: Layout basic equalities for 6j symbols.]
+We list some basic equalities among $6$j symbols.
+
+\begin{proposition}[basic equalities of $6$j symbols]\label{prop/basic-equalities-of-6j-symbols}
+  Let $C$ be a (coordinated) premodular category, $I$ its set of
+  simples, $i, j, k, k', l, m \in I$,
+  $j_{0}, j_{1}, \ldots, j_{8} \in I$, and $\delta$ the Kronecker
+  delta. Then we have the degenerated $6$j symbol
+  \begin{equation}\label{eqn/degenerated-6j}
+    \sixJSymbol{i}{j}{k}{l}{m}{0} = \delta_{m,i} \delta_{l,j^{\star}}dim'(i)^{-1}dim'(j)^{-1}Id(i,j,k^{\star}).
+  \end{equation}
+  We also have the so called Biedenharn-Elliott identity as an equality in the non-ordered tensor product of the $\mathbb{k}$-modules
+  $$
+  H(j_{3}^{\star}, j_{5}^{\star}, j_{6}),\,
+  H(j_{1}^{\star}, j_{2}^{\star}, j_{5}),\,
+  H(j_{4}^{\star}, j_{6}^{\star}, j_{0}),\,
+  H(j_{0}^{\star}, j_{1}, j_{7}),\,
+  H(j_{7}^{\star}, j_{2}, j_{8}),\,
+  H(j_{8}^{\star}, j_{3}, j_{4})
+  $$
+  (in the context of state sum over a triangulation, this corresponds to the $(2,3)$ Pachner move):
+  \begin{equation}\label{eqn/Biedenharn-Elliot-identity}
+    \ast_{j_{0}^{\star}j_{5}j_{8}}
+    \left(
+      \sixJSymbol{j_{5}}{j_{3}}{j_{6}}{j_{4}}{j_{0}}{j_{8}} \otimes \sixJSymbol{j_{1}}{j_{2}}{j_{5}}{j_{8}}{j_{0}}{j_{7}}
+    \right)
+    =
+    \sum_{j \in I} dim(j)
+    \ast_{j^{\star}j_{2}j_{3}}\ast_{jj_{4}j_{7}^{\star}}\ast_{jj_{1}j_{6}^{\star}}
+    \left(
+      \sixJSymbol{j_{1}}{j_{2}}{j_{5}}{j_{3}}{j_{6}}{j} \otimes
+      \sixJSymbol{j_{1}}{j}{j_{6}}{j_{4}}{j_{0}}{j_{7}} \otimes
+      \sixJSymbol{j_{2}}{j_{3}}{j}{j_{4}}{j_{7}}{j_{8}}
+    \right).
+  \end{equation}
+  We also have the orthonormality relation
+  \begin{equation}\label{eqn/orthonormality-relation}
+    \delta_{k,k'} Id(i,j,k^{\star}) \otimes Id(k,l,m^{\star})
+    =
+    dim(k)\,\sum_{n \in I} dim(n) \ast_{im^{\star}n} \ast_{jln^{\star}}
+    \left(
+      \sixJSymbol{i^{\star}}{j^{\star}}{k^{\star}}{l^{\star}}{m^{\star}}{n^{\star}} \otimes
+      \sixJSymbol{i}{j}{k'}{l}{m}{n}
+    \right).
+  \end{equation}
+  Finally, we have the Racah identity
+  \begin{equation}\label{eqn/Racah-identity}
+    \nu'_{j_{3}} \nu'_{j_{6}} (\nu'_{j_{1}} \nu'_{j_{2}} \nu'_{j_{4}} \nu'_{j_{5}})^{-1}
+    \sixJSymbol{j_{1}}{j_{2}}{j_{3}}{j_{4}}{j_{5}}{j_{6}}
+    =
+    \sum_{j \in I} (\nu'_{j})^{-1} dim(j) \ast_{j^{\star}j_{1}j_{4}} \ast_{jj_{2}j_{5}^{\star}}
+    \left(
+      \sixJSymbol{j_{1}}{j_{4}}{j}{j_{2}}{j_{5}}{j_{6}} \otimes
+      \sixJSymbol{j_{2}}{j_{1}}{j_{3}}{j_{4}}{j_{5}}{j}
+    \right)
+  \end{equation}
 \end{proposition}
+
+\begin{proof}
+  Proof?
+  [TODO: refer to Turaev but stress that they also work for premodular categories.] (p.334)
+\end{proof}
 
 \begin{definition}[$10$j-symbol]\label{def/10j-symbol}
   [TODO]
@@ -219,6 +306,9 @@ are all \textit{equal as sets}.
 
 \section{Topology $(T)$}
 \subsection{$4$-manifold}
+
+[TODO: Draw a diagram that relating different kinds of data.]
+
 Manifolds in real dimension four are of interest because their
 wildness, witnessed in the following examples:
 
@@ -281,14 +371,23 @@ manifold admits a natural handle decomposition by taking dual.
 The correct state sum is the universal state sum \cite{?}; it
 transforms the decomposition datum into a number.
 
+[TODO: Mention the reconstruction theorem for closed
+4-manifolds.]
+
 \subsection{Shadow}
 
-\noindent A shadow is another type of structure that encodes the
-data of a closed $4$-manifold. Roughly speaking, a shadow is a
-$2$-polyhedron with extra decorations (called gleams) that
-remember the twisting data. A $2$-polyhedron is a topological and
-combinatorial object that encodes $3$-dimensional manifolds
-\cite{?Matveev}. It is called a pre-foam in the modern literature
+% TODO - Figure out why we need integer-shadows.
+
+\noindent A shadow is another type of structure that encodes
+closed $4$-manifolds. We will briefly recall it, and describe how
+it presents closed $4$-manifolds in
+\ref{def/shadow-of-a-4-manifold}.
+
+\noindent Roughly speaking, a shadow is a $2$-polyhedron with
+extra decorations (called gleams) that remember the twisting
+data. A $2$-polyhedron is a topological and combinatorial object
+that encodes $3$-dimensional manifolds \cite{?Matveev}. It is
+called a pre-foam in the modern literature
 \cite{khovanov-robert/foam}.
 
 \begin{definition}[tripod]\label{def/tripod}
@@ -342,28 +441,123 @@ combinatorial object that encodes $3$-dimensional manifolds
   of the region.
 \end{definition}
 
-\begin{definition}[shadow]\label{def/shadow}
+\begin{definition}[shadowed $2$-polyhedron]\label{def/shadowed-2-polyhedron}
   Let $P$ be a simple $2$-polyhedron, and $A$ an abelian group
   with a distinguished element $\omega \in A$. We define a shadow
   to be a pair of an orientable $2$-polyhedron $P$ and a map
   (called gleam) $gl: Region(P) \to A$. Unless specified further,
   we assume that $A = \mathbb{Z}[\frac{1}{2}]$ and
   $\omega = \frac{1}{2}$.
+
+  \noindent We denote $-P$ to be the same simple $2$-polyhedron
+  but with all gleams flipped by $(a \mapsto -a)$.
 \end{definition}
+
+For each connected oriented closed surface $\Sigma$ and each
+$a \in A$, there is a shadowed $2$-polyhedron $\Sigma_{a}$ which
+consists of $\Sigma$ with the gleam $a$ assigned to the only
+region. For example, the $0$-gleamed $2$-sphere is denoted as
+$S^{2}_{0}$.
 
 \begin{definition}[shadow moves]\label{def/shadow-moves}
   [TODO]
+Basic moves
+  (P1)
+  (P2)
+  (P3)
+  Turaev p369
+
+  A general is a finite composition of $P_1^{\pm 1}$..
+\end{definition}
+
+\begin{definition}[shadow]\label{def/shadow}
+  A shadow is an equivalence class of shadowed $2$-polyhedron $P$
+  up to a shadow move. We denote the shadow by $[P]$, and say
+  that $P$ represents the shadow $[P]$. (p.370)
+\end{definition}
+
+\noindent For two connected shadow $[P]$ and $[P']$, we construct
+the shadow $[P]+[P']$ as follows. Arbitrarily identify two
+arbitrarily chosen closed disks $D \subset Int(P)$ and
+$D' \subset Int(P')$ in $P \coprod P'$, and equip the interior of
+$D$ (a new region) with gleam $0$. So defines a simple
+$2$-polyhedron and we say that it represents $[P]+[P']$. It is
+well-defined by \cite[lemma VIII.2.1.1]{turaev-}. For an integer
+$m \in \mathbb{Z_{\geq 0}}$, we define $m[P]$ as the sum of
+$m$-many $[P]$.
+
+\begin{definition}[stable shadow]\label{def/stable-shadow}
+  Two connected shadowed polyhedra $P$, $P'$ are called stably
+  shadow equivalent if there exists
+  $n, n' \in \mathbb{Z_{\geq 0}}$ such that
+  $[P] + m[S^{2}_{0}] = [P'] + m'[S^{2}_{0}]$. Extend the
+  definition to non-connected ones in an obvious fashion. A
+  stable shadow is defined to be a shadowed polyhedron up to
+  stable shadow equivalence. Denote the stable shadow of $[P]$ to
+  be $stab([P])$.
+\end{definition}
+
+We are ready to present a closed $4$-manifold in terms of
+shadows.
+
+\begin{definition}[locally flat $2$-polyhedron in a
+  $4$-manifold]\label{def/locally-flat-2-polyhedron-in-a-4-manifold}
+  Let $X$ be a closed $4$-manifold. A $2$-polyhedron $P$ in $X$
+  is flat at a point $p \in P$ if there exists a neighborhood $U$
+  of $p$ in $X$ such that $U \cap P$ lies in a $3$-dimensional
+  submanifold of $X$. We say that $P$ is locally flat if it is
+  flat at all $p \in P$. (p.394)
 \end{definition}
 
 \begin{definition}[skeleton of a $4$-manifold]\label{def/skeleton-of-a-4-manifold}
-  [TODO]
-  Let $X$ be a closed $4$-manifold.
+  Let $X$ be a closed $4$-manifold. A skeleton (p.395) of $X$ is
+  a locally flat orientable simple $2$-polyhedron without
+  boundary $P$ such that a closed regular neighborhood of it with
+  some $3$- and $4$-handles form $X$.
 \end{definition}
 
-\begin{definition}[shadow of a $4$-manifold]\label{def/shadow-of-a-4-manifold}
-  [TODO]
-  Let $X$ be a closed $4$-manifold.
+\noindent For example, the $\mathbb{C}P^{1}$ (standardly
+embedded) is a skeleton of $\mathbb{C}P^{2}$. By [turaev theorem
+IX.1.5.], every $4$-manifold has a skeleton (by compressing the
+$(0,1,2)$-handles in an arbitrary handle decomposition).
+
+\begin{definition}[stable shadow of a $4$-manifold]\label{def/stable-shadow-of-a-4-manifold}
+  Let $X$ be a closed $4$-manifold. Take a skeleton $P$ of $X$
+  and construct a shadowed simple $2$-polyhedron by assigning
+  gleams to the regions $\Sigma$ in the following way.
+  \begin{enumerate}
+    \item If $\Sigma$ is homeomorphic to a closed surface, define
+          the gleam to be the self-intersection (which is
+          independent of the orientation of $\Sigma$)
+          $$([\Sigma] \cdot [\Sigma]) \in H_{0}(X;\mathbb{Z}) = \mathbb{Z} \subset \mathbb{Z}[\frac{1}{2}].$$
+    \item Otherwise, $\Sigma$ is non-compact. Deformation retract
+          it to a compact subsurface $\Sigma_{0}$. Denote $N$ to
+          be the normal bundle of $\Sigma_{0}$ in $X$. Consider
+          the line bundle $l$ over $\partial \Sigma_{0}$ by
+          [TODO, see VIII.6.2. and p.397], which may be regarded
+          as a subbundle of $N|_{\partial \Sigma_{0}}$. The
+          circle bundle $\mathbb{P}(N)$ is trivial over
+          $\Sigma_{0}$ since the later is of $1$-homotopy type.
+          With a choice of an orientation of $\Sigma_{0}$ and
+          $X$, $l$ induces a section of
+          $\mathbb{P}(N)|_{\partial}$. The obstruction class of
+          this section to the whole $\mathbb{P}(N)$ is an element
+          of
+          $H^{2}(\Sigma_{0}, \partial \Sigma_{0}; \pi_{1}(S^{1})) = \mathbb{Z}$.
+          % TODO: Understand this part really.
+          Finally, define the gleam to be the half of the
+          resulting integer (which is independent to the choice
+          of $\Sigma_{0}$).
+  \end{enumerate}
+  It is the main theorem of \cite[chapter IX]{turaev} (see
+  IX.1.7) that all shadowed polyhedra chosen in such fashion
+  above are all stably shadow equivalent. Therefore, it defines
+  the stable shadow $sh(X)$ of the closed $4$-manifold $X$.
 \end{definition}
+
+\noindent Examples include
+$sh(\pm\mathbb{C}P^{2}) = stab([S^{2}_{\pm 1}])$ and
+$sh(S^{4}) = stab([S^{2}_{0}])$.
 
 \section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
