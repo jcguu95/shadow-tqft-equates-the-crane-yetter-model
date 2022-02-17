@@ -52,6 +52,9 @@ work with.
 [TODO: Notes to expert: Use a paragraph to explain what the news
 things in this work are.]
 
+% TODO Make sure I refer to the fix version of Turaev's book
+% (ISBN and more indicators).
+
 \section{Algebra $(A)$}
 \subsection{Premodular category}
 
@@ -339,7 +342,7 @@ $4$ unless further specified. Readers who are uncomfortable with
 the result of Kirby-Siebenmann can treat this entire work as one
 about piecewise-linear manifolds instead of the smooth manifolds.
 
-\subsection{Triangulation}
+\subsection{Triangulation} \label{subsection/triangulation}
 
 \noindent The standard oriented $4$-simplex is defined to be
 following topological subspace (with natural orientation)
@@ -446,7 +449,7 @@ called a pre-foam in the modern literature
   with a distinguished element $\omega \in A$. We define a shadow
   to be a pair of an orientable $2$-polyhedron $P$ and a map
   (called gleam) $gl: Region(P) \to A$. Unless specified further,
-  we assume that $A = \mathbb{Z}[\frac{1}{2}]$ and
+  we assume that $A = \mathbb{Z}\left[\frac{1}{2}\right]$ and
   $\omega = \frac{1}{2}$.
 
   \noindent We denote $-P$ to be the same simple $2$-polyhedron
@@ -497,8 +500,8 @@ $m$-many $[P]$.
   be $stab([P])$.
 \end{definition}
 
-We are ready to present a closed $4$-manifold in terms of
-shadows.
+\noindent We are ready to present a closed $4$-manifold in terms
+of shadows.
 
 \begin{definition}[locally flat $2$-polyhedron in a
   $4$-manifold]\label{def/locally-flat-2-polyhedron-in-a-4-manifold}
@@ -529,7 +532,7 @@ $(0,1,2)$-handles in an arbitrary handle decomposition).
     \item If $\Sigma$ is homeomorphic to a closed surface, define
           the gleam to be the self-intersection (which is
           independent of the orientation of $\Sigma$)
-          $$([\Sigma] \cdot [\Sigma]) \in H_{0}(X;\mathbb{Z}) = \mathbb{Z} \subset \mathbb{Z}[\frac{1}{2}].$$
+          $$([\Sigma] \cdot [\Sigma]) \in H_{0}(X;\mathbb{Z}) = \mathbb{Z} \subset \mathbb{Z}\left[1/2\right].$$
     \item Otherwise, $\Sigma$ is non-compact. Deformation retract
           it to a compact subsurface $\Sigma_{0}$. Denote $N$ to
           be the normal bundle of $\Sigma_{0}$ in $X$. Consider
@@ -559,7 +562,158 @@ $(0,1,2)$-handles in an arbitrary handle decomposition).
 $sh(\pm\mathbb{C}P^{2}) = stab([S^{2}_{\pm 1}])$ and
 $sh(S^{4}) = stab([S^{2}_{0}])$.
 
+\noindent Recall from \cite[section IX. 4]{turaev} that a handle
+decomposition of a closed $4$-manifold $X$ gives rise to a shadow
+of $X$. The explicit construction will be recalled below as it
+will be used to prove our main theorem. We need some
+preliminaries.
+
+\begin{definition}[skeleton of a $3$-manifold]\label{def/skeleton-of-a-3-manifold}
+  Let $Y$ be a closed $3$-manifold. A skeleton of $Y$ is an
+  orientable simple $2$-polyhedron without boundary $P \subset Y$
+  such that $Y \ P$ is a disjoint union of open $3$-balls.
+  (p.400)
+\end{definition}
+
+\begin{definition}[shadow cone of a framed link in a
+  $3$-manifold]\label{def/shadow-cone-of-a-framed-link-in-a-3-manifold}
+  \noindent Every compact $3$-manifold $Y$ has a skeleton (turaev
+  IX 2.1.1). For example, the equator ($S^{2}$) of $S^{3}$ is a
+  skeleton. Let $P$ be a skeleton of $Y$ and $l$ be a framed link
+  in $Y$. Projecting $l$ generically onto $P$ induces a shadow
+  projection. Assign gleams around each crossing point as in
+  (turaev figure IX.3.4). Then construct the shadow as in
+  (IX.3.3) by naturally attaching a disk along each projected
+  component on $P$ (as a new region) endowed with zero gleam.
+  Denote the resulting shadow to be $CO(Y,l)$. [TODO: up to what
+  is it well-defined + reference?]
+\end{definition}
+
+\noindent We are ready to construct a shadow of a $4$-manifold
+from a handle decomposition.
+
+\begin{definition}[shadow of a $4$-manifold from handle
+  decomposition]\label{def/shadow-of-a-4-manifold-from-handle-decomposition}
+  Let $X$ be an oriented $4$-manifold and
+  $H = \bigcup_{i=0}^{4} H_{i}$ be a handle decomposition, where
+  $H_{i}$ denotes the union of the handles of index $i$. Define
+  $Y$ to be the closed $3$-manifold $\partial(H_{0} \cup H_{1})$.
+  By the definition of handle decomposition, the gluing datum of
+  $H_{2}$ onto the lower parts is encoded as a link $l$ in $Y$.
+  Define the stable shadow $sh'(X,H)$ to be $CO(Y,l)$.
+\end{definition}
+
+\noindent It is a theorem (IX.4.2) that $sh'(X,H)$ does not
+depend on the choice of $H$. In fact, $sh'(X,H)$ equals the
+stable shadow of $sh(X)$ (IX.7).
+
+\begin{remark}
+  It is not surprising why the handles of indices $3$ and $4$ are
+  not included in the construction of the shadow. Indeed, the
+  handles of indices $\leq 2$ are enough to reconstruct the whole
+  closed $4$-manifold (cite: Stern or Fintushel?).
+\end{remark}
+
 \section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
+
 \subsection{Shadow state sum}
-\subsection{Main result: equivalence of both state sums}
+
+[..]
+
+\begin{proposition}[shadow state sum is local]\label{prop/shadow-state-sum-is-local}
+  [TODO]
+\end{proposition}
+
+We end the subsection with a key lemma.
+
+\begin{lemma}[$10$j symbol as a shadow state sum]\label{lemma/10j-symbol-as-shadow-state-sum}
+  [TODO]
+\end{lemma}
+
+\subsection{Main result: equivalence of state sums}
+
+\noindent We state and prove the main theorem of this paper.
+
+\begin{theorem}[equivalence of state sums]
+  Let $X$ be a closed $4$-manifold and $C$ be a (coordinated)
+  premodular category. Then $$\int^{CY}_{X}C = \int^{sh}_{X} C.$$
+\end{theorem}
+
+\begin{proof}
+  Let $1 >> \epsilon > 0$, $T$ be a triangulation of $X$, and
+  $H = \bigcup_{i=0}^{4} H_{i}$ be a dual handle decomposition in
+  which the attaching region of each $1$-handle on each
+  $0$-handle is the $\epsilon$-ball ($3$-dimensional) of the
+  central point of corresponding $3$-cell. (This makes sense
+  because we have realized the standard $4$-cell as a subspace of
+  the standard $\mathbb{R}^{5}$ in
+  (\ref{subsection/triangulation}).) To compute the shadow state
+  sum, we first need to construct a shadow for $X$. We will
+  construct it by the procedure given in
+  \ref{def/shadow-of-a-4-manifold-from-handle-decomposition} as
+  the resulting shadow will resemble the structure of $T$.
+
+  Suppose $T$ has $n$ $4$-cells. Let $\Delta$ be a $4$-cell in
+  $T$. It corresponds to a $0$-handle $h_{0}$. Each of the
+  $3$-cell $\delta$ among the five in $\partial \Delta$
+  corresponds to (a half of) a $1$-handle $h_{1}$, which is glued
+  to $h_{0}$. Hence $H_{0} \cup H_{1}$ is a solid $4$-body with
+  $n$ $0$-cells and $\frac{5n}{2}$ $1$-cells. The $3$-manifold
+  $Y = \partial(H_{0} \cup H_{1})$ in the
+  construction \ref{def/shadow-of-a-4-manifold-from-handle-decomposition}
+  is therefore homeomorphic to the space constructed as follows:
+  First take the union of $n$ $3$-spheres identified to the
+  $0$-cells, and connected sum any pair of them if and only if
+  the corresponding $0$-cells are connected by $1$-cells. It is
+  also homeomorphic to a union of $n$ $S^{3} - B^{3} \times 5$
+  (denoted by $S_{0,5}$) with obvious parts that overlap, where
+  the $B^{3}$ can be identified as the $\epsilon$-ball introduced
+  above.
+
+  Following the construction, we will construct a skeleton for
+  the $3$-manifold $Y$. The construction will be first carried
+  out locally in each $S_{0,5}$, and then glued together with
+  some modification:
+
+  \begin{enumerate}
+    \item In each $S_{0,5}$, fix a $3$-ball $B$ of size
+          $\epsilon$ such that the following condition holds. For
+          each removed $B^{3}$, pick a shortest path from its
+          center to the center of $B$. Thicken each path to width
+          $\frac{\epsilon}{2}$. We require that the five thicken
+          paths do not intersect each other. The boundary of the
+          union is a $5$-punctured sphere $\Sigma_{0,5}$ in
+          $S_{0,5}$.
+    \item Identify arbitrarily the end of a $5$-punctured sphere
+          (a circle) with the end of another $5$-punctured sphere
+          (another circle) if this pair corresponds to the same
+          $1$-handle.
+    \item For each identified circle, glue a $2$-disk along its
+          boundary.
+  \end{enumerate}
+
+  The resulting polyhedron $P$ is simple and orientable.
+  Moreover, its complement in $Y$ is a union of open $3$-balls.
+  Therefore, $P$ is a skeleton for the $3$-manifold $Y$ as
+  desired.
+
+  The next step in the construction
+  (\ref{def/shadow-of-a-4-manifold-from-handle-decomposition}) is
+  to project the link $l \subset Y$ (as the gluing datum of
+  $H_{2}$ onto $H_{0} \cup H_{1}$). As the handle decomposition
+  $H$ comes from a triangulation, the links are identical in each
+  local piece $S^{3} - B^{3} \times 5$. A simple geometric
+  exercise shows that a generic projection of $l$ onto $P$ looks
+  as follows (with gleams added as in the construction
+  \ref{def/shadow-of-a-4-manifold-from-handle-decomposition}).
+
+  \noindent [TODO: Add graphic [20220217T143000 (1)]]
+
+  Using \ref{prop/shadow-state-sum-is-local}, it remains to show
+  that the shadow state sum of the (local) shadow depicted above
+  coincides with the $10$j symbol. This is exactly what the key
+  lemma \ref{lemma/10j-symbol-as-shadow-state-sum} shows, so we
+  are done.
+
+\end{proof}
