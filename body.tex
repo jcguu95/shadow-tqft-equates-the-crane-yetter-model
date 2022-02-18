@@ -220,6 +220,19 @@ $\mathbb{k}$-module.
   #4 & #5 & #6 \\
 \end{vmatrix}}
 
+% Used as in \tenJSymbol{a}{b}{c}{d}{e}{f}{g}{{h}{i}{j}}
+\newcommand{\tenJSymbol}[8]{\begin{vmatrix}
+    #1 & #2 & #3 & #4 \\
+     * & #5 & #6 & #7 \\
+    \tenJSymbolContinued #8 \\
+  \end{vmatrix}_{10j}
+}
+
+\newcommand\tenJSymbolContinued[3]{
+  * & * & #1 & #2 \\
+  * & * & * & #3
+}
+
 \begin{definition}[$6$j-symbol]\label{def/6j-symbol}
   For each $(i,j,k,l,m,n) \in I^{6}$, we define the (normalized)
   $6$j symbol
@@ -234,7 +247,8 @@ $\mathbb{k}$-module.
   $H(j, l, n^{\star})$, $H(k^{\star}, l^{\star}, m)$.
 \end{definition}
 
-We list some basic equalities among $6$j symbols.
+\noindent We list some basic equalities among $6$j symbols. j
+symbol
 
 \begin{proposition}[basic equalities of $6$j symbols]\label{prop/basic-equalities-of-6j-symbols}
   Let $C$ be a (coordinated) premodular category, $I$ its set of
@@ -297,12 +311,38 @@ We list some basic equalities among $6$j symbols.
 \end{proof}
 
 \begin{definition}[$10$j-symbol]\label{def/10j-symbol}
-  [TODO]
+  Let $C$ be a (coordinated) premodular category, $I$ its set of
+  simples, and $j_{ab} \in I$ for $0 \leq a < \leq 4$. Denote
+  $V_{ab} = V_{j_{ab}}$. Then define the $10$j symbol
+  $$
+  \tenJSymbol{j_{01}}{j_{02}}{j_{03}}{j_{04}}{j_{12}}{j_{13}}{j_{14}}{{j_{23}}{j_{24}}{j_{34}}}
+  $$
+  to be the $\mathbb{k}$-linear map from the non-ordered tensor
+  product of $\mathbb{k}$-modules
+  \begin{itemize}
+    \item
+          $Hom_{C}(V_{0}, V_{01} \otimes V_{02} \otimes V_{03} \otimes V_{04})$
+    \item
+          $Hom_{C}(V_{0}, V_{12} \otimes V_{13} \otimes V_{14} \otimes V_{01}^{\star})$
+    \item
+          $Hom_{C}(V_{0}, V_{23} \otimes V_{24} \otimes V_{02}^{\star} \otimes V_{12}^{\star})$
+    \item
+          $Hom_{C}(V_{0}, V_{34} \otimes V_{03}^{\star} \otimes V_{13}^{\star} \otimes V_{23}^{\star})$
+    \item
+          $Hom_{C}(V_{0}, V_{04}^{\star} \otimes V_{14}^{\star} \otimes V_{24}^{\star} \otimes V_{34}^{\star})$
+  \end{itemize}
+  to $\mathbb{k}$ as the framed graph invariant for the following
+  framed $C$-colored graph:
+
+  \noindent [TODO: add graphics [20220217T143000 (2)]]
 \end{definition}
 
-\begin{definition}[$15$j-symbol]\label{def/15j-symbol}
-  [TODO]
-\end{definition}
+\begin{remark}[$15$j-symbol]\label{remark/15j-symbol}
+  A $15$j-symbol is a equivalent variant of a $10$j-symbol used
+  in the literature. However, the author believes the later is
+  more natural to work with, so we will not mention nor use the
+  former in this paper.
+\end{remark}
 
 % \subsection{Example}
 % tables in appendix?
@@ -346,7 +386,7 @@ about piecewise-linear manifolds instead of the smooth manifolds.
 
 \noindent The standard oriented $4$-simplex is defined to be
 following topological subspace (with natural orientation)
-$$\Delta = \Delta_{4} = \left\{x \in [0,1]^{5} \,|\, \sum x_{i} = 1 \right\}.$$
+$$\Delta_{4} = \left\{ \, x \in [0,1]^{5} \,\, \middle| \,\, \sum_{i=0}^{4} x_{i} = 1 \, \right\}.$$
 By a triangulated ($4$-)space we mean a finite collection of
 copies of $\Delta$ with a finite collection of (affine and
 oriented) identifications of the pairs of distinct faces. Clearly
@@ -361,6 +401,38 @@ can be relate by a finite sequence of Pachner basic moves
 diffeomorphism) by a gluing datum (up to Pachner moves). As we
 will see, the Crane-Yetter state sum transforms the gluing datum
 into a number.
+
+\noindent --
+
+Pick and fix an orientation for $\Delta_{4}$ and denote the
+oriented $4$-cell by $\Delta_{4}(01234)$. This orientation then
+naturally induces orientations for its boundary $3$-cells:
+$$\Delta_{3}(1234), \Delta_{3}(-0234), \Delta_{3}(0134), \Delta_{3}(-0124), \Delta_{3}(0123),$$
+where $\Delta_{3}(1234)$ denotes the oriented $3$-cell twidehat
+misses the vertex on the $0$th axis and so on. For convenience, we denote
+$$\Delta_{3}(\widehat{0}) = \Delta_{3}(1234), \Delta_{3}(\widehat{1}) = \Delta_{3}(-0234) \ldots.$$
+For flexibility, we also denote
+$$\Delta_{3}(1234) = \Delta_{3}(-2134) = \Delta_{3}(2314) = \Delta_{3}(-3214) \ldots$$
+and so on (depending on the parity of the corresponding element
+in the symmetric group).
+
+Notice twidehat while the boundary $3$-cells receive canonical
+orientations from twidehat of $\Delta_{4}(01234)$, the boundary
+$2$-cells do not. Take the $2$-cell away from the $3$rd and the
+$4$th axes for instance. While the orientation induced from
+$\Delta_{3}(0123)$ gives $\Delta_{2}(012)$, twidehat from
+$\Delta_{3}(-0124)$ gives $\Delta_{2}(-012)$. Thus we must make a
+difference between $\Delta_{2}(\widehat{34})$ and
+$\Delta_{2}(\widehat{43})$ by defining $\Delta_{2}(\widehat{34})$ to be
+$\Delta_{2}(012)$ and vice versa. In general, we define
+$\Delta_{2}(\widehat{ij})$ to be the boundary $2$-cell with
+orientation induced from $\Delta_{3}(\widehat{i})$. It is easy to
+check twidehat $\Delta_{2}(\widehat{ji}) = -\Delta_{2}(\widehat{ij})$ and
+$$\Delta_{2}(\widehat{ij}) = (-1)^{1+i+j}\Delta_{2}(0 \ldots \widehat{i} \ldots \widehat{j} \ldots 4)$$
+provided $i < j$.
+
+(TODO: Define an oriented triangulation of an oriented
+$4$-manifold..)
 
 \subsection{Handle decomposition}
 
@@ -617,15 +689,66 @@ stable shadow of $sh(X)$ (IX.7).
 \section{Sum $\left( \int_{T}{A} \right)$}
 \subsection{Crane-Yetter state sum}
 
-\subsection{Shadow state sum}
+\begin{definition}[$C$-colored ($4$-)simplex]\label{def/C-colored-simplex}
+  Let $C$ be a (coordinated) premodular category, $I$ be the set
+  of simples in $C$, and $\Delta$ be the standard oriented
+  $4$-cell $\Delta_{4}(01234)$ defined in [TODO: to ref]. Define
+  a $C$-coloring on $\Delta$ to be an assignment
+  $\beta: or_{2}(\Delta) \to I$ [TODO: to def or2 as the set of
+  oriented $2$-cells] such that
+  $\beta(-\Delta_{2}) = \beta(\Delta_{2})^{\star}$.
+\end{definition}
 
-[..]
+\begin{definition}[$C$-colored triangulation]\label{def/C-colored-triangulation}
+  Let $C$ be a (coordinated) premodular category, $I$ be the set
+  of simples in $C$, $X$ be a closed oriented $4$-manifold, and
+  $T$ be an oriented triangulation of $X$. A $C$-colored
+  triangulation of $T$ is an assignment $\beta: or_{2}(T) \to I$
+  such that $\beta(-\Delta_{2}) = \beta(\Delta_{2})^{\star}$.
+\end{definition}
+
+\noindent Note that a $C$-coloring on a triangulation $T$
+naturally restricts to $|T|$ [TODO: to define] $C$-colored
+$4$-simplices.
+
+\begin{definition}[$10$j symbol for a $C$-colored simplex]\label{def/10j-symbol-for-a-C-colored-simplex}
+  Let $\Delta = (\Delta_{4}(01234), \beta)$ be a $C$-colored
+  simplex. Denote $\beta_{\widehat{ab}}$ to be the color
+  $\beta(\Delta_{2}(\widehat{ab})) \in I$ assigned to the
+  oriented $2$-cell $\Delta_{2}(\widehat{ab})$. We define the
+  $10$j symbol for $\Delta$ to be
+  $$
+  10j(\Delta) =
+  \tenJSymbol{\beta_{\widehat{01}}}{\beta_{\widehat{02}}}{\beta_{\widehat{03}}}{\beta_{\widehat{04}}} {\beta_{\widehat{12}}}{\beta_{\widehat{13}}}{\beta_{\widehat{14}}} {{\beta_{\widehat{23}}}{\beta_{\widehat{24}}}{\beta_{\widehat{34}}}}.
+  $$
+\end{definition}
+
+\begin{definition}[Crane-Yetter state sum for a closed
+  $4$-manifold]\label{def/crane-yetter-state-sum-for-a-closed-4-manifold}
+  Let $C$ be a (coordinated) premodular category and $X$ a closed
+  $4$-manifold. We define the Crane-Yetter state sum for $X$ to
+  be
+  $$
+  \int_{X}^{CY} C = \ast \left( \bigotimes_{\Delta \in T} 10j(\Delta) \right) \in \mathbb{k},
+  $$
+  [TODO: fix constants] where $T$ denotes an oriented
+  triangulation of $X$, and $\ast$ denotes the full contraction
+  [TODO: to define].
+\end{definition}
+
+\noindent The state sum is independent to the choice of $T$, and
+therefore such construction provides an invariant for closed
+$4$-manifolds. Moreover, it can be extended to a fully extended
+topological quantum field theory [TODO: add reference.. Barenz,
+Kirillov+Tham, Ben-Zvi and Jordan, Cooke, Guu.. etc].
+
+\subsection{Shadow state sum}
 
 \begin{proposition}[shadow state sum is local]\label{prop/shadow-state-sum-is-local}
   [TODO]
 \end{proposition}
 
-We end the subsection with a key lemma.
+\noindent We end the subsection with a key lemma.
 
 \begin{lemma}[$10$j symbol as a shadow state sum]\label{lemma/10j-symbol-as-shadow-state-sum}
   [TODO]
@@ -637,7 +760,9 @@ We end the subsection with a key lemma.
 
 \begin{theorem}[equivalence of state sums]
   Let $X$ be a closed $4$-manifold and $C$ be a (coordinated)
-  premodular category. Then $$\int^{CY}_{X}C = \int^{sh}_{X} C.$$
+  premodular category. Then their Crane-Yetter state sum and
+  shadow state sum are equal
+  $$\int^{CY}_{X}C = \int^{sh}_{X} C.$$
 \end{theorem}
 
 \begin{proof}
@@ -680,11 +805,11 @@ We end the subsection with a key lemma.
     \item In each $S_{0,5}$, fix a $3$-ball $B$ of size
           $\epsilon$ such that the following condition holds. For
           each removed $B^{3}$, pick a shortest path from its
-          center to the center of $B$. Thicken each path to width
-          $\frac{\epsilon}{2}$. We require that the five thicken
-          paths do not intersect each other. The boundary of the
-          union is a $5$-punctured sphere $\Sigma_{0,5}$ in
-          $S_{0,5}$.
+          center to the center of $B$. Thicken each path to have
+          width radius $\frac{\epsilon}{2}$. We require that the
+          five thicken paths do not intersect each other. The
+          boundary of the union is a $5$-punctured sphere
+          $\Sigma_{0,5}$ in $S_{0,5}$.
     \item Identify arbitrarily the end of a $5$-punctured sphere
           (a circle) with the end of another $5$-punctured sphere
           (another circle) if this pair corresponds to the same
@@ -700,12 +825,13 @@ We end the subsection with a key lemma.
 
   The next step in the construction
   (\ref{def/shadow-of-a-4-manifold-from-handle-decomposition}) is
-  to project the link $l \subset Y$ (as the gluing datum of
-  $H_{2}$ onto $H_{0} \cup H_{1}$). As the handle decomposition
-  $H$ comes from a triangulation, the links are identical in each
-  local piece $S^{3} - B^{3} \times 5$. A simple geometric
-  exercise shows that a generic projection of $l$ onto $P$ looks
-  as follows (with gleams added as in the construction
+  to project the link $l \subset Y$ as the gluing datum of
+  $H_{2}$ onto $\partial(H_{0} \cup H_{1})$. As the handle
+  decomposition $H$ comes from a triangulation, the links are
+  identical in each local piece $S^{3} - B^{3} \times 5$. A
+  simple geometric exercise shows that a generic projection of
+  $l$ onto $P$ looks as follows (with gleams added as in the
+  construction
   \ref{def/shadow-of-a-4-manifold-from-handle-decomposition}).
 
   \noindent [TODO: Add graphic [20220217T143000 (1)]]
