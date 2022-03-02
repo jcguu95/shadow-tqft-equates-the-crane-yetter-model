@@ -78,6 +78,14 @@
 \newcommand{\cok}{\operatorname{cok}}
 \newcommand{\im}{\operatorname{im}}
 
+%%%%%% toggles %%%%%%
+\newtoggle{details}
+\toggletrue{details}
+\iftoggle{details}{
+  \newcommand{\details}[1]{
+    {\color{OliveGreen} #1} \\}
+}{\newcommand{\details}[1]{}}
+
 %%%%%%%%%%%%%%%%%% Tikz %%%%%%%%%
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -154,3 +162,5 @@ block/.style={rectangle, rounded corners, text centered, draw=black, align=cente
 %% for shading with gradients
 \tikzfading[name=fade inside, inner color=transparent!80, outer
 color=transparent!10]
+
+\usepackage{svg}
