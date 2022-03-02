@@ -145,8 +145,11 @@ number $dim_{C}(i) = dim(i) \in \mathbb{k}$ as the trace of
 $id_{V_{i}}$ and the number $\nu_{i} \in \mathbb{k}^{\star}$ as
 the twisting coefficient $tr(\theta_{V_{i}})/tr(id_{V_{i}})$,
 where $\theta_{V_{i}}$ denotes the endomorphism of $V_{i}$
-depicted in [TODO: insert graphic 20220217T143000(5)]. We further
-define the Gauss sum of $C$ to be
+depicted in the following graph.
+\begin{center}
+  \includegraphics[height=0.8cm]{twist}
+\end{center}
+We further define the Gauss sum of $C$ to be
 $$\Delta_{C} = \sum_{i \in I} \nu_{i}^{-1}dim(i)^{2}.$$
 
 \noindent In order to do computations with a premodular category
@@ -196,10 +199,12 @@ coordinated premodular category.
 \end{definition}
 
 \noindent We identify $H_{k}^{ij}$ with $H^{ijk^{\star}}$ and
-$H_{ij}^{k}$ with $H^{kj^{\star}i^{\star}}$ by the following
-linear maps and call them the canonical identifications: [insert
-graphics: 20220217T143000 (4)].
-
+$H_{ij}^{k}$ with $H^{kj^{\star}i^{\star}}$ by the linear maps
+induced by the following graph and call them the canonical
+identifications:
+\begin{center}
+  \includegraphics[height=5.5cm]{identification}
+\end{center}
 \noindent Recall that the natural pairing
 $$H^{ij}_{k} \otimes_{\mathbb{k}} H_{ij}^{k} \to Hom_{C}(V_{k},V_{k}) \xrightarrow{tr} \mathbb{k})$$
 is nondegenerate by the semisimplicity of $C$. The braided
@@ -249,11 +254,13 @@ canonical identification between $H(i,j,k)$ and $H^{ijk}$.
   Let $C$ be a (coordinated) premodular category, $I$ its set of
   simples, and $i, j, k \in I$. Define the contraction map
   $H^{ijk} \otimes H^{k^{\star}j^{\star}i^{\star}} \to \mathbb{k}$
-  by the following diagram [TODO: insert diagram
-  20220217T143000T(6)] \details{\cite[figure
-    VI.3.5]{turaev-qiok-3-manifolds}}. Denote the canonically
-  induced contraction map on the symmetrized modules to be
-  (p.334)
+  by the following diagram \details{\cite[figure
+    VI.3.5]{turaev-qiok-3-manifolds}}
+  \begin{center}
+    \includegraphics[height=6cm]{pairing}
+  \end{center}
+  Denote the canonically induced contraction map on the
+  symmetrized modules to be (p.334)
   $$\ast_{ijk}: H(i,j,k) \otimes_{\mathbb{k}} H(i^{\star}, j^{\star}, k^{\star}) \to \mathbb{k}.$$
   This defines a nondegenerate pairing and thus induces a
   canonical element $Id(i,j,k)$ in the domain of $\ast_{ijk}$
@@ -295,8 +302,10 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
   $$\sixJSymbol{i}{j}{k}{l}{m}{n}:
   H_{k}^{ij} \otimes H_{m}^{kl} \otimes H_{jl}^{n} \otimes H_{in}^{m} \to \mathbb{k}$$
   to be the linear map induced by the partial tensor network on
-  the $2$-sphere $S^{2}$: [TODO: insert diagram
-  20220217T143000(3)].
+  the $2$-sphere $S^{2}$:
+  \begin{center}
+    \includegraphics[height=6cm]{6j-geometric}
+  \end{center}
 
   \noindent Using the canonical identifications, we define the
   induced map
@@ -402,9 +411,12 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
   %   \item
   %         $Hom_{C}(V_{0}, V_{04}^{\star} \otimes V_{14}^{\star} \otimes V_{24}^{\star} \otimes V_{34}^{\star})$
   % \end{itemize}
-  to $\mathbb{k}$ induced by the following $C$-colored graph:
-
-  \noindent [TODO:add graphics [20220217T143000(2)]]
+  to $\mathbb{k}$ induced by the following (equivalent)
+  $C$-colored graphs:
+  \begin{center}
+    \includegraphics[height=4cm]{10j-plain}
+    \includegraphics[height=6cm]{10j-geometric}
+  \end{center}
 \end{definition}
 
 \begin{remark}[$15$j-symbol]\label{remark/15j-symbol}
