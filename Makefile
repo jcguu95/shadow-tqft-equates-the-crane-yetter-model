@@ -1,9 +1,9 @@
 filename=main
 
 pdflatex:
-	pdflatex ${filename}.tex
+	pdflatex --shell-escape ${filename}.tex
 	biber ${filename}
-	pdflatex ${filename}.tex
+	pdflatex --shell-escape ${filename}.tex
 
 read:
 	zathura ${filename}.pdf &
