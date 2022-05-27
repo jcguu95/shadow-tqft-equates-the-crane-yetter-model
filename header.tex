@@ -164,3 +164,26 @@ block/.style={rectangle, rounded corners, text centered, draw=black, align=cente
 color=transparent!10]
 
 \usepackage{svg}
+
+
+%%% - Foam drawing - The following is taken from Khovanov
+%%% (https://arxiv.org/pdf/1808.09662.pdf)
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations}
+\usetikzlibrary{patterns}
+\usepackage{tikz-3dplot}
+\tikzset{yxplane/.style={canvas is xy plane at z=#1}}
+\tikzset{>=latex}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{-<-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{<}}},postaction={decorate}}}
+%
+\usepackage{amscd}
+\usepackage{psfrag}
+%%% END - Foam Drawing -

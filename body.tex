@@ -1,70 +1,68 @@
 \section{Introduction}
 
-% Topology is the wildest in d=4. QFT is an important tool to
-% tackle it.
-Topology is probably the wildest in dimension four. For example,
-the cardinality of the set of smooth structures on
-$\mathbb{R}^{n}$ (up to equivalence) is $1$ unless $n=4$ in which
-case there are uncountably many; Poincare conjecture remains
-wildly unproven only for $n = 4$.. etc. Some tools can help
-tackle to some extent: Donaldson invariants, Seiberg-Witten
-invariants, and Yamabe invariants are shown to be sensitive to
-exotic smooth structures for some special cases. Despite their
-successes, they were known not to be fully sensitive, and were
-hard to modify because they include heavy analytic packages.
+Topology is the wildest in dimension $4$. For example, the smooth
+Poincare conjecture remains far from proven only for $n = 4$, and
+the topological $\mathbb{R}^{n}$ admits exactly one
+diffeomorphism type unless $n=4$, in which case uncountably many
+are available. There are gauge-theoretic tools which, to some
+extent, are sensitive to exotic smooth phenomena, such as the
+Donaldson and Seiberg-Witten invariants. Despite their successes,
+they are unable to tackle a large class of problems including the
+smooth Poincare conjecture for $n=4$.
 
-In the $90$s, another simpler invariant for smooth $4$-manifolds
-was proposed by Crane and Yetter. However, it was soon known to
-be too ``weak'' in the sense that it only sees the homotopy type.
-However, its simplicity leaves more space for modification.
-Though several attempts have been made
-\cite{barenz/evaluation-crane-yetter}, not much success has been
-achieved yet in terms of sensitivity to exotic smooth structures.
-A recent work by Reutter \cite{reutter/semisimple} explains the
-failure, suggesting that we need a non-semisimple variant of CY
-model for the goal.
+In the $90$s, a simpler invariant of smooth $4$-manifolds was
+proposed by Crane and Yetter (CY). The original CY invariant
+could only detect homotopy type but its simplicity leaves room
+for modifications. Despite several attempts at modification (e.g.
+\cite{barenz/evaluation-crane-yetter}), to date, there has not been
+much success at detecting exotic smooth phenomena. A recent work
+by Reutter \cite{reutter/semisimple} explains the failure, and
+suggests the need for a non-semisimple or derived variant of the
+CY model.
 
-Before moving on to a non-semisimple CY model, the author decides
-to investigate another model for $4$D topology, the Turaev shadow
-model. The shadow model originated from the face model in
-statistical mechanics, and it was known to coincide with the CY
-model in some cases in which the $4$D CY model degenerates to the
-$3$D Witten-Reshetikhin-Turaev model
-\cite{barrett/observables-in-tv-and-cy}. It is thus natural to
-study the difference between the shadow model and the CY model in
-a more general setting \footnote{If based on a modular tensor
-  category, the CY model degenerated to the WRT model. By a more
-  general setting we mean the CY model with the based on a
-  premodular category (i.e. modular except the $S$-matrix could
-  be degenerate).}.
+Before moving into that direction, the author aims to settle
+another issue first. There is another invariant of
+$4$-dimensional smooth manifolds, the shadow model a la V. Turaev
+\cite{turaev/topology-of-shadows} \cite{turaev-qiok-3-manifolds},
+from statistical mechanics. Moreover, it was known that the
+shadow model coincides with the CY model when both degenerate
+\cite[X.3.2 \& theorem X.3.3]{turaev-qiok-3-manifolds}
+\cite{barrett/observables-in-tv-and-cy} to the $3$D
+Witten-Reshetikhin-Turaev model (also known as the quantized
+Chern-Simons theory). It is thus necessary to clarify their
+relationship in the general semisimple case. Despite the
+difference of their origins and formal definitions, this paper
+shows them equal, suggesting once again that semisimple models
+have reached their limit in terms of detecting exotic smooth
+phenomena.
 
-This work shows that there is no such difference, suggesting the
-community again to move on and pursue an effective non-semisimple
-CY model. Along proving the equivalence of the two models, we
-make heavy use of the construction of the Turaev shadow model
-first given in the big book \cite{turaev-qiok-3-manifolds}, in
-which the model is defined over any modular tensor category. We
-observe that the model can be extended to the premodular case.
+Along proving the equivalence of the two models, we make heavy
+use of the construction of the shadow model given in
+\cite{turaev-qiok-3-manifolds}. We include the essential details
+of the construction in this paper which serve as a digestible
+survey of the shadow model.
 
 \subsection{Sections summary}
 
 \begin{itemize}
-  \item Section \ref{section/algebra}: The basics of tensor
+  \item Section \ref{section/algebra}: We provide the basics of tensor
         categories, their graphical calculi and tensor networks,
         and special numerical entities ($n$j-symbols). Nothing in
         this section is new.
-  \item Section \ref{section/topology}: Three kinds of data that
-        present smooth $4$-manifolds: triangulations, handle
-        decompositions, and shadows. We also fully recall the
-        definition of a shadow, which closely resembles foams in
-        the modern literature. Nothing in this section is new.
-        Readers can treat this paper as a thin interface to the
-        book.
-  \item Section \ref{section/sum}: Definitions of the two state
-        sums: the CY model and the shadow model. The observation
-        that the shadow model can be extended from modular
-        categories to premodular categories is new. We conclude
-        the section by stating and proving the equivalence.
+  \item Section \ref{section/topology}: We provide three kinds of
+        data that present smooth $4$-manifolds: triangulations,
+        handle decompositions, and shadows. We also fully recall
+        the definition of a shadow, which closely resembles foams
+        in the modern literature on Khovanov homology. Nothing in
+        this section is new. Readers can treat this paper as a
+        thin interface to the book
+        \cite{turaev-qiok-3-manifolds}.
+  \item Section \ref{section/sum}: We provide the definitions of
+        the two state sums: the CY model and the shadow model.
+        The novel observation is that the shadow model can be
+        extended from modular categories to premodular
+        categories. We conclude the section by stating and
+        proving the equivalence.
 \end{itemize}
 
 \subsection{Note on the arXiv version}
@@ -79,10 +77,14 @@ $4$-manifold. While the CY state sum can be computed from any
 triangulation $T$ of $X$, the shadow state sum can be computed
 from any stable shadow of $X$. We construct a natural stable
 shadow $S$ from $T$ and compute the shadow sum in terms of $S$.
-By the locality of shadow sum, we reduce the task to proving that
-the local shadow evaluates to the local term involved in the CY
-state sum (namely, the $10$j-symbols). This is proven in
-\ref{lemma/10j-symbol-as-shadow-state-sum}.
+If the shadow sum is actually a $(3+1)$D-TQFT, we can reduce the
+task to proving that the local shadow evaluates to the local term
+involved in the CY state sum (namely, the $10$j-symbols).
+However, the author could not prove the semi-locality, but rather
+found a workaround for the case of closed $4$-manifolds. The
+author expects the shadow sum can be modified to be a fully
+extended TQFT, which is in turn fully equivalent to the
+Crane-Yetter model.
 
 \subsection{Conventions}
 
@@ -133,7 +135,7 @@ finite groups, finite $2$-groups, and quantum groups.
 \end{definition}
 
 \noindent In particular, a premodular category $C$ is semisimple,
-$\mathbb{k}$-linear, and fusion. Define its set of simples to be
+$\mathbb{k}$-linear, and fusion. Define its set of simple objects to be
 the set $I$ of simple $C$-objects up to isomorphism. Denote
 $0 \in I$ so that the monoidal identity $\mathbb{1} \in 0$. As
 taking monoidal dual preserves simplicity, for each $i \in I$
@@ -158,7 +160,7 @@ All intrinsic results are independent of the choice.
 
 \begin{definition}[coordinated premodular
   category]\label{def/coordinated-premodular-category}
-  Let $C$ be a premodular category and $I$ its set of simples.
+  Let $C$ be a premodular category and $I$ its set of simple objects.
   Choose and fix the following:
   \begin{itemize}
     \item A number $D \in \mathbb{k}$ such that
@@ -166,7 +168,8 @@ All intrinsic results are independent of the choice.
           dimension of $C$).
     \item A set of $C$-objects $\{V_{i}\}_{i \in I}$ such
           that $V_{i} \in i$ and that $V_{0} = \mathbb{1}$.
-    \item A set of isomorphisms [(p.313)]
+    \item A set of isomorphisms
+          \cite[p.313]{turaev-qiok-3-manifolds}
           $\{\omega_{i}: V_{i} \to (V_{i^{\star}})^{\star}\}_{i \in I}$.
     \item A set of numbers
           $\{dim_{C}'(i) = dim'(i) \in \mathbb{k}\}_{i \in I}$
@@ -176,7 +179,8 @@ All intrinsic results are independent of the choice.
     \item A set of numbers
           $\{\nu_{i}' \in \mathbb{k}\}_{i \in I}$ such that
           $\nu_{0}' = 1$, $(\nu_{i}')^{2} = \nu_{i}$, and
-          $\nu_{i^{\star}}' = \nu_{i}'$ [(p.313)].
+          $\nu_{i^{\star}}' = \nu_{i}'$
+          \cite[p.313]{turaev-qiok-3-manifolds}.
   \end{itemize}
 
   Such a $5$-tuple
@@ -190,8 +194,8 @@ All intrinsic results are independent of the choice.
 coordinated premodular category.
 
 \begin{definition}[multiplicity module]\label{def/multiplicity-module}
-  Let $C$ be a (coordinated) premodular category and $I$ its set
-  of simples. Respectively, define $H^{ijk}$, $H_{k}^{ij}$, and
+  Let $C$ be a coordinated premodular category and $I$ its set
+  of simple objects. Respectively, define $H^{ijk}$, $H_{k}^{ij}$, and
   $H_{ij}^{k}$ to be the $\mathbb{k}$-modules
   $Hom_{C}(\mathbb{1}, V_{i} \otimes V_{j} \otimes V_{k})$,
   $Hom_{C}(V_{k}, V_{i} \otimes V_{j})$, and
@@ -216,7 +220,7 @@ way to keep track of the isomorphisms among the $H^{ijk}$'s.
 
 \begin{definition}[canonical isomorphisms]\label{def/canonical-isomorphism}
   Let $C$ be a premodular category, $c$ its braided structure,
-  $I$ its set of simples, and $i,j,k \in I$. Define the
+  $I$ its set of simple objects, and $i,j,k \in I$. Define the
   canonical isomorphisms
   $H^{ijk} \xrightarrow{\sigma_{1}(ijk)} H^{jik}$ and
   $H^{ijk} \xrightarrow{\sigma_{2}(ijk)} H^{ikj}$ by
@@ -237,7 +241,7 @@ so $\sigma_{1}$ and $\sigma_{2}$ specify the isomorphisms among
 the six $\mathbb{k}$-modules.
 
 \begin{definition}[symmetrized multiplicity module]\label{def/symmetrized-multiplicity-module}
-  Let $C$ be a premodular category, $I$ its set of simples, and
+  Let $C$ be a premodular category, $I$ its set of simple objects, and
   $i, j, k \in I$. Define the symmetrized multiplicity module
   $H(i,j,k)$ to be the $\mathbb{k}$-module consisting of
   functions $\phi$ that assign an element
@@ -251,8 +255,8 @@ $H(k,j,i)$ are \textit{equal as sets}. By definition, there is a
 canonical identification between $H(i,j,k)$ and $H^{ijk}$.
 
 \begin{definition}[contraction]\label{def/contraction}
-  Let $C$ be a (coordinated) premodular category, $I$ its set of
-  simples, and $i, j, k \in I$. Define the contraction map
+  Let $C$ be a coordinated premodular category, $I$ its set of
+  simple objects, and $i, j, k \in I$. Define the contraction map
   $H^{ijk} \otimes H^{k^{\star}j^{\star}i^{\star}} \to \mathbb{k}$
   by the following diagram \details{\cite[figure
     VI.3.5]{turaev-qiok-3-manifolds}}
@@ -260,11 +264,12 @@ canonical identification between $H(i,j,k)$ and $H^{ijk}$.
     \includegraphics[height=6cm]{pairing}
   \end{center}
   Denote the canonically induced contraction map on the
-  symmetrized modules to be (p.334)
+  symmetrized modules to be
+  (\cite[p.334]{turaev-qiok-3-manifolds})
   $$\ast_{ijk}: H(i,j,k) \otimes_{\mathbb{k}} H(i^{\star}, j^{\star}, k^{\star}) \to \mathbb{k}.$$
   This defines a nondegenerate pairing and thus induces a
   canonical element $Id(i,j,k)$ in the domain of $\ast_{ijk}$
-  (p.333).
+  (\cite[p.333]{turaev-qiok-3-manifolds}).
 \end{definition}
 
 \noindent We will abuse notation by denoting natural contractions
@@ -287,15 +292,28 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
 % Used as in \tenJSymbol{a}{b}{c}{d}{e}{f}{g}{{h}{i}{j}}
 \newcommand{\tenJSymbol}[8]{\begin{vmatrix}
     #1 & #2 & #3 & #4 \\
-     * & #5 & #6 & #7 \\
+     . & #5 & #6 & #7 \\
     \tenJSymbolContinued #8 \\
   \end{vmatrix}_{10j}
 }
 
 \newcommand\tenJSymbolContinued[3]{
-  * & * & #1 & #2 \\
-  * & * & * & #3
+  . & . & #1 & #2 \\
+  . & . & . & #3
 }
+
+\newcommand{\tenJSymbolMirrored}[8]{\begin{vmatrix}
+    #1 & #2 & #3 & #4 \\
+     . & #5 & #6 & #7 \\
+    \tenJSymbolMirroredContinued #8 \\
+  \end{vmatrix}_{\overline{10j}}
+}
+
+\newcommand\tenJSymbolMirroredContinued[3]{
+  . & . & #1 & #2 \\
+  . & . & . & #3
+}
+
 
 \begin{definition}[$6$j-symbol]\label{def/6j-symbol}
   For each $i,j,k,l,m,n \in I$, we define the $6$j-symbol
@@ -314,8 +332,8 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
 \end{definition}
 
 \begin{proposition}[basic equalities of $6$j symbols]\label{prop/basic-equalities-of-6j-symbols}
-  Let $C$ be a (coordinated) premodular category, $I$ its set of
-  simples, $i, j, k, k', l, m \in I$,
+  Let $C$ be a coordinated premodular category, $I$ its set of
+  simple objects, $i, j, k, k', l, m \in I$,
   $j_{0}, j_{1}, \ldots, j_{8} \in I$, and $\delta$ be the Kronecker
   delta. Then we have the degenerated $6$j symbol
   \begin{equation}\label{eqn/degenerated-6j}
@@ -381,14 +399,14 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
 \end{proof}
 
 \begin{definition}[$10$j-symbol]\label{def/10j-symbol}
-  Let $C$ be a (coordinated) premodular category, $I$ its set of
-  simples, and $j_{ab} \in I$ with $j_{ab} = j_{ba}^{\star}$ for
+  Let $C$ be a coordinated premodular category, $I$ its set of
+  simple objects, and $j_{ab} \in I$ with $j_{ab} = j_{ba}^{\star}$ for
   $0 \leq a, b \leq 4$.
-  Wenote $[x,y,z,w]$ to be
-  $Hom_{Z}(V_{0}, V_{j_{x}} \otimes V_{j_{y}} \otimes V_{j_{z}} \otimes V_{j_{w}})$.
-  Then define the (algebraic) $10$j symbol
+  Denote $[x,y,z,w]$ to be the vector space
+  $Hom_{C}(V_{0}, V_{j_{x}} \otimes V_{j_{y}} \otimes V_{j_{z}} \otimes V_{j_{w}})$.
+  Then define the $10$j symbol (and its mirror, resp.)
   $$
-  \tenJSymbol{j_{01}}{j_{02}}{j_{03}}{j_{04}}{j_{12}}{j_{13}}{j_{14}}{{j_{23}}{j_{24}}{j_{34}}}
+  \tenJSymbol{j_{01}}{j_{02}}{j_{03}}{j_{04}}{j_{12}}{j_{13}}{j_{14}}{{j_{23}}{j_{24}}{j_{34}}} \quad \left(\tenJSymbolMirrored{j_{01}}{j_{02}}{j_{03}}{j_{04}}{j_{12}}{j_{13}}{j_{14}}{{j_{23}}{j_{24}}{j_{34}}}, resp.\right)
   $$
   to be the $\mathbb{k}$-linear map from the non-ordered tensor
   product of $\mathbb{k}$-modules
@@ -412,89 +430,130 @@ to $\mathbb{k}$ by $\ast_{ijk}$ for any $\mathbb{k}$-module $V$.
   %         $Hom_{C}(V_{0}, V_{04}^{\star} \otimes V_{14}^{\star} \otimes V_{24}^{\star} \otimes V_{34}^{\star})$
   % \end{itemize}
   to $\mathbb{k}$ induced by the following (equivalent)
-  $C$-colored graphs:
-  \begin{center}
+  $C$-colored graphs (resp., the same gadget but with the
+  underlying graph mirrored and all arrows reversed).
+  \begin{center}\label{graph/10j-symbol}
     \includegraphics[height=4cm]{10j-plain}
     \includegraphics[height=6cm]{10j-geometric}
   \end{center}
 \end{definition}
 
 \begin{remark}[$15$j-symbol]\label{remark/15j-symbol}
-  A $15$j-symbol is an equivalent variant of a $10$j-symbol used
-  in the literature. The $10$j-symbols are more natural, so we
-  will not mention nor use the $15$j-symbols in this paper.
+  A $15$j-symbol is an equivalent variant of a $10$j-symbol. It
+  was used in the older literature to make sure the morphism
+  spaces are $1$-dimensional. The $10$j-symbols are more
+  intrinsic, so we use them instead of the $15$j-symbols.
 \end{remark}
 
 \section{Topology $(T)$}\label{section/topology}
 \subsection{$4$-manifold}
 
-Manifolds in real dimension four are of interest because of their
-wildness, witnessed in the examples:
+Manifolds in real dimension $4$ are interesting because of their
+wildness, witnessed in the following examples:
 
 \begin{enumerate}
-  \item Real dimension $4$ is the first dimension where the
-        topological structures, the piecewise-linear structures,
-        and the smooth structures disagree.
-  \item The euclidean space $\mathbb{R}^{n}$ has exactly one
-        smooth structure (up to diffeomorphism) for each
-        non-negative integer $n$ except for $\mathbb{R}^{4}$,
-        which has more than a countably infinite worth of
-        inequivalent smooth structures
-        \cite{scorpan/the-wild-world-of-4-manifolds}.
-  \item The Poincare conjecture for the $n$-dimensional sphere
-        $S^{n}$ has been resolved except for $n=4$, which remains
-        widely open to date.
+  \item Real dimension $4$ is the smallest dimension where the
+        topological structures and the smooth structures
+        disagree.
+  \item For $n \in \mathbb{N}\setminus\{4\}$, the euclidean space
+        $\mathbb{R}^{n}$ as a topological space admits exactly
+        one diffeomorphism type, while $\mathbb{R}^{4}$ admits
+        infinitely many
+        \cite{scorpan/the-wild-world-of-4-manifolds}\cite[p.2]{milnor/topological-manifolds-and-smooth-manifolds}.
+  \item The (smooth) Poincare conjecture for the $n$-dimensional
+        sphere $S^{n}$ has been resolved except for $n=4$, which
+        remains widely open to date despite several attempts.
   \item The Universe where we live seems to be best-modeled by a
         $4$-manifold.
 \end{enumerate}
 
-\noindent Despite the wildness, Kirby and Siebenmann [TODO: cite
-carefully \cite{kirby-siebenmann}] show that the category of
-smooth manifolds is equivalent to the category of
-piecewise-linear manifolds. The data of the later are smaller and
-more elegant. Thus we will really be working on the
-piecewise-linear case. By a manifold we mean a piecewise-linear,
-oriented, connected and closed manifold in real dimension $4$
-unless further specified.
+\noindent Despite its wildness, in dimension $4$ the notion of
+smooth manifolds coincides with the notion of piecewise-linear
+(PL) manifolds \cite[sec.IX.1.1]{turaev-qiok-3-manifolds}. The
+data of the later can be made combinatorial and concrete, and is
+what we will really be working on. From now on, unless further
+specified, by a manifold we mean an oriented, connected, closed
+and piecewise-linear manifold in real dimension $4$.
 
 \subsection{Triangulation} \label{subsection/triangulation}
 
-\noindent The standard oriented $4$-simplex is defined to be the
-following topological subspace
-$$\Delta_{4} = \left\{ \, x \in [0,1]^{5} \,\, \middle| \,\, \sum_{i=0}^{4} x_{i} = 1 \, \right\}.$$
+This section is standard
+\cite[chap.1]{rourke-sanderson/intro-to-pl-topology}
+\cite[sec.2]{manolescu/lectures-on-the-triangulation-conjecture}
+but included for completeness.
 
-Fix an orientation and denote the
-oriented $4$-cell by $\Delta_{4}(01234)$. This
-induces orientations for its boundary $3$-cells:
-$$\Delta_{3}(\widehat{0}) = \Delta_{3}(1234), \Delta_{3}(\widehat{1}) = \Delta_{3}(-0234), \Delta_{3}(\widehat{2}) = \Delta_{3}(0134), \Delta_{3}(\widehat{3}) =  \Delta_{3}(-0124), \Delta_{3}(\widehat{4}) = \Delta_{3}(0123),$$
-where $\Delta_{3}(1234)$ denotes the oriented $3$-cell that
-misses the vertex on the $0$th axis and so on. For flexibility,
-we also denote for example
-$$\Delta_{3}(1234) = \Delta_{3}(-2134) = \Delta_{3}(2314) = \Delta_{3}(-3214) \ldots$$
+\begin{definition}[simplicial complex]\label{def/simplicial-complex}
+  An abstract simplicial complex is a pair $K = (V, S)$ of finite
+  sets $V$ and $S \subset 2^{V}$, such that $\tau \in S$ whenever
+  $\sigma \in S$ and $\tau \subset \sigma$. For a subset
+  $S' \subset S$, its closure is
+  $$\overline{S'} = \{\tau \in S \,|\, \tau \subset \sigma \in S'\}.$$
+  Given a simplex $\tau$, its star and its link are
+  $$Star(\tau) := \{\sigma \in S \,|\, \tau \subset \sigma\}, \quad
+  Link(\tau) := \{\sigma \in \overline{Star(\tau)} \,|\, \tau \cap \sigma = \phi\}.$$
+  We say that $K$ is an abstract combinatorial manifold (possibly
+  with boundary) of dimension $n$ if the link of each of its
+  simplices (or equivalently each of its vertices) is PL
+  homeomorphic to either a sphere or a disk, and if top cell has
+  dimension $n$. The geometric realization $|K|$ of $K$ is
+  defined as usual by gluing $k$-dimensional simplices inducively
+  on $k \geq 0$.
 
-Notice that the boundary $2$-cells do not receive natural
-orientations from the oriented $4$-cell. Take the $2$-cell away
-from the $3$rd and the $4$th axes for instance. While the
-orientation induced from $\Delta_{3}(0123)$ gives
-$\Delta_{2}(012)$, that from $\Delta_{3}(-0124)$ gives
-$\Delta_{2}(-012)$. Define $\Delta_{2}(\widehat{ij})$ to be the
-boundary $2$-cell with orientation induced from
-$\Delta_{3}(\widehat{i})$. It is easy to check that
-$\Delta_{2}(\widehat{ji}) = -\Delta_{2}(\widehat{ij})$ and if $i<j$
-$$\Delta_{2}(\widehat{ij}) = (-1)^{1+i+j}\Delta_{2}(0 \ldots \widehat{i} \ldots \widehat{j} \ldots 4).$$
-
-By a triangulated ($4$-)space we mean a finite collection of
-copies of $\Delta$ with a finite collection of identifications of
-the pairs of distinct faces. A triangulated $4$-space $S$
-naturally gives rise to a piecewise-linear oriented manifold
-$|S|$ (up to a PL-homeomorphism).
-
-\begin{definition}[(oriented) triangulation of an oriented
-  $4$-manifold]\label{def/triangulation-of-an-oriented-4-manifold}
-  Let $X$ be an oriented $4$-manifold. By an oriented
-  triangulation of $X$ we mean a triangulated $4$-space $S$ such
-  that $|S|$ is PL-homeomorphic to $X$.
+  An orientation of a combinatorial manifold is an ordering of
+  the vertices up to even permutations. We define the standard
+  $n$-simplex to be $\Delta_{n} = \{0, 1, 2, \ldots, n\}$, with
+  $[0 < 1 < \ldots < n]$ being its standard orientation. Its
+  $k$th face is defined to be
+  $$\Delta_{n}(\widehat{k}) = (\text{-} 1)^{k}\Delta(012 \ldots \widehat{k} \ldots n).$$
+  For example, the standard oriented $4$-simplex
+  $\Delta_{4}(01234)$ has a $3$-dimensional face being
+  $\Delta_{4}(\widehat{1}) = \text{-} \Delta_{4}(0234) = \Delta_{4}(2034) = \ldots$.
+  This face, in turn, has another $2$-dimensional face
+  $\Delta_{4}(\widehat{12}) = \Delta_{4}(034)$. In general, for
+  $i<j$, denote
+  $\Delta(\widehat{ij}) = (\text{-} 1)^{i+j \text{-} 1}(0 \ldots \widehat{i} \ldots \widehat{j} \ldots 4)$.
 \end{definition}
+
+\begin{definition}[Pachner move]\label{def/pachner-move}
+  Let an abstract combinatorial manifold $K = (V,S)$ of
+  dimension $n$. A Pachner $(1,n+1)$-move along a top-simplex
+  $\tau \in S$ is defined to be $K \rightsquigarrow K'$, where
+  $$
+  K' = \left(
+    V \coprod \{\star\},\quad (S\setminus\{\tau\}) \coprod (\coprod_{f} (f \cup \{\star\}))
+  \right),
+  $$
+  where $f$ funs through each face of $\tau$. A Pachner
+  $(2,n)$-move along two top-simplices $\tau, \tau' \in S$ that
+  share a face $f \in S$ is defined to be
+  $K \rightsquigarrow K'$, where
+  $$ K' = \left (V,\quad (S\setminus\{\tau,\tau'\}) \coprod (\coprod_{g} (g \cup \{\star, \star'\})) \right),$$
+  where $g$ runs through each face of $f$, and $\star$ ($\star'$,
+  resp.) denotes the opposite vertex of $f$ in $\tau$ ($\tau'$,
+  resp.). We say the inverses are Pachner $(n,2)$-moves and
+  $(n+1,1)$-moves respectively. Denote $K \sim K'$ if $K'$ can be
+  obtained by $K$ via a finite sequence of Pachner moves.
+  \begin{center}
+    \includegraphics[height=4cm]{pachner-move}
+  \end{center}
+\end{definition}
+
+\noindent Notice that a Pachner move $K \rightsquigarrow K'$
+induces naturally a PL homeomorphism $K \xrightarrow{\sim} K'$.
+
+\begin{definition}[triangulation of PL-manifolds] Let $X$ be a
+  piecewise-linear manifold. A triangulation of $X$ is a
+  PL-homeomorphism $X \xrightarrow{\phi} |K|$ for some
+  combinatorial manifold $K$.
+\end{definition}
+
+\begin{fact}
+  Any piecewise-linear manifold $X$ has a triangulation
+  $\phi: X \simeq |K|$. Any other triangulation
+  $\phi': X \simeq |K'|$ satisfies $K \sim K'$. Finally, an
+  orientation of $X$ restricts to a coherent orientation for each
+  top cell of $K$.
+\end{fact}
 
 \subsection{Handle decomposition}
 
@@ -523,8 +582,8 @@ $2$-polyhedron with extra decorations (called gleams) that
 remember the twisting data. A $2$-polyhedron is a topological and
 combinatorial object that encodes $3$-dimensional manifolds
 \cite{matveev/algorithmic-topology-and-classification-of-3-manifolds}.
-It is called a pre-foam in the modern literature
-\cite{khovanov-robert/foam}.
+It is called a pre-foam in the literature of Khovanov homology
+(from foams) \cite{khovanov-robert/foam}.
 
 \begin{definition}[tripod]\label{def/tripod}
   Define the standard tripod to be the topological subspace of
@@ -577,6 +636,15 @@ It is called a pre-foam in the modern literature
   of the region.
 \end{definition}
 
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\input{graphics/km_3localmodels}
+\end{tikzpicture}
+\caption{The graphic is taken from \cite{khovanov-robert/foam}.}
+\label{figure/3localmodel}
+\end{figure}
+
 \begin{definition}[shadowed $2$-polyhedron]\label{def/shadowed-2-polyhedron}
   Let $P$ be a simple $2$-polyhedron, and $A$ an abelian group
   with a distinguished element $\omega \in A$. We define a shadow
@@ -600,7 +668,7 @@ $2$-sphere.
   of $Y$ induces a map
   $$H_{2}(P;\partial P) \to \mathbb{Z}; h \mapsto \langle h | Y \rangle.$$
   Define the symmetric bilinear form $\tilde{Q}_{P}$ on
-  $H_{2}(P; \partial P)$ by
+  $H_{2}(P; \partial P)$ by summing over all regions of $Y$
   $$\tilde{Q}_{P}(h_{1}, h_{2}) = \sum_{Y} \langle h_{1}|Y\rangle \langle h_{2}|Y\rangle gl(Y) \in A$$
   and restrict it to $Q_{P}$ along the natural map
   $H_{2}(P) \to H_{2}(P; \partial P)$ (which is injective by a
@@ -615,19 +683,21 @@ definition coincide with the intersection form of $X$
 \cite[section IX.5]{turaev-qiok-3-manifolds}.
 
 \begin{definition}[shadow moves]\label{def/shadow-moves}
-  \details{\cite[section VIII.1.3, p.369]{turaev-qiok-3-manifolds}}
-
-  TODO: include graphics
-
-  Basic moves P1P2P3
-
-  A general is a finite composition of $P_1^{\pm 1}$..
+  \details{\cite[section VIII.1.3,
+    p.369]{turaev-qiok-3-manifolds}} The basic shadow moves
+  $P_{1}, P_{2}, P_{3}$ are given in the following graphics
+  (taken from \cite{turaev-qiok-3-manifolds}). A shadow move is a
+  finite composition of the $P_{i}^{\pm 1}$'s.
+  \begin{center}
+    \includegraphics[height=13cm]{shadow-move--taken-from-turaev}
+  \end{center}
 \end{definition}
 
 \begin{definition}[shadow]\label{def/shadow}
   A shadow is an equivalence class of shadowed $2$-polyhedron $P$
   up to a shadow move. We denote the shadow by $[P]$, and say
-  that $P$ represents the shadow $[P]$. (p.370)
+  that $P$ represents the shadow $[P]$
+  \cite[p.370]{turaev-qiok-3-manifolds}.
 \end{definition}
 
 \noindent For two connected shadow $[P]$ and $[P']$, we construct
@@ -660,18 +730,19 @@ of shadows.
   is flat at a point $p \in P$ if there exists a neighborhood $U$
   of $p$ in $X$ such that $U \cap P$ lies in a $3$-dimensional
   submanifold of $X$. We say that $P$ is locally flat if it is
-  flat at all $p \in P$. (p.394)
+  flat at all $p \in P$ (\cite[p.394]{turaev-qiok-3-manifolds}).
 \end{definition}
 
 \begin{definition}[skeleton of a $4$-manifold]\label{def/skeleton-of-a-4-manifold}
-  Let $X$ be a closed $4$-manifold. A skeleton (p.395) of $X$ is
-  a locally flat orientable simple $2$-polyhedron without
-  boundary $P$ such that a closed regular neighborhood of it with
-  some $3$- and $4$-handles form $X$.
+  Let $X$ be a closed $4$-manifold. A skeleton
+  \cite[p.395]{turaev-qiok-3-manifolds} of $X$ is a locally flat
+  orientable simple $2$-polyhedron without boundary $P$ such that
+  a closed regular neighborhood of it with some $3$- and
+  $4$-handles form $X$.
 \end{definition}
 
-\noindent For example, the $\mathbb{C}P^{1}$ (standardly
-embedded) is a skeleton of $\mathbb{C}P^{2}$. By \cite[theorem
+\noindent For example, $\mathbb{C}P^{1} = \{[x:y:0]\}$ is a
+skeleton of $\mathbb{C}P^{2} = \{[x:y:z]\}$. By \cite[theorem
 IX.1.5]{turaev-qiok-3-manifolds}, every $4$-manifold has a
 skeleton (by compressing the $(0,1,2)$-handles in an arbitrary
 handle decomposition).
@@ -691,9 +762,9 @@ handle decomposition).
           the line bundle $l$ over $\partial \Sigma_{0}$ by
           \cite[section VIII.6.2,
           p.397]{turaev-qiok-3-manifolds}, which may be regarded
-          as a subbundle of $N|_{\partial \Sigma_{0}}$. The
+          as a sub-bundle of $N|_{\partial \Sigma_{0}}$. The
           circle bundle $\mathbb{P}(N)$ is trivial over
-          $\Sigma_{0}$ since the later is of $1$-homotopy type.
+          $\Sigma_{0}$ since the later is a homotopy $1$-type.
           With a choice of an orientation of $\Sigma_{0}$ and
           $X$, $l$ induces a section of
           $\mathbb{P}(N)|_{\partial}$. The obstruction class of
@@ -717,10 +788,10 @@ handle decomposition).
   $sh(S^{4}) = stab([S^{2}_{0}])$.
 \end{example}
 
-\noindent Recall from \cite[section
-IX.4]{turaev-qiok-3-manifolds} that a handle decomposition of a
-closed $4$-manifold $X$ gives rise to a shadow of $X$. The
-explicit construction will be recalled below in
+\noindent A handle decomposition of a closed $4$-manifold $X$
+gives rise to a shadow of $X$ \cite[section
+IX.4]{turaev-qiok-3-manifolds}. The explicit construction will be
+recalled below in
 \ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition},
 which will be used to prove our main theorem.
 
@@ -728,7 +799,7 @@ which will be used to prove our main theorem.
   Let $Y$ be a closed $3$-manifold. A skeleton of $Y$ is an
   orientable simple $2$-polyhedron without boundary $P \subset Y$
   such that $Y \setminus P$ is a disjoint union of open
-  $3$-balls. (p.400)
+  $3$-balls \cite[p. 400]{turaev-qiok-3-manifolds}.
 \end{definition}
 
 \begin{definition}[shadow cone of a framed link in a
@@ -759,10 +830,10 @@ which will be used to prove our main theorem.
 \end{definition}
 
 \begin{remark}\label{remark/stable-shadow-of-a-4-manifold}
-  It is a theorem of \cite[IX.4.2]{turaev-qiok-3-manifolds} that
-  $sh'(X,H)$ does not depend on the choice of $H$ as a stable
-  shadow. In fact, $sh'(X,H)$ equals the stable shadow $sh(X)$
-  \cite[IX.7]{turaev-qiok-3-manifolds}.
+  It is a theorem of \cite[sec.IX.4.2]{turaev-qiok-3-manifolds}
+  that $sh'(X,H)$ does not depend on the choice of $H$ as a
+  stable shadow. In fact, $sh'(X,H)$ equals the stable shadow
+  $sh(X)$ \cite[sec. IX.7]{turaev-qiok-3-manifolds}.
 \end{remark}
 
 \begin{remark}\label{remark/reconstruction-of-4-manifolds}\cite[section 4.4]{gompf-stipsicz/4-manifolds-and-kirby-calculus}
@@ -773,147 +844,205 @@ which will be used to prove our main theorem.
 \section{Sum $\left( \int_{T}{A} \right)$}\label{section/sum}
 \subsection{Crane-Yetter state sum}
 
-\begin{definition}[$C$-colored ($4$-)simplex]\label{def/C-colored-simplex}
-  Let $C$ be a (coordinated) premodular category, $I$ be the set
-  of simples in $C$, and $\Delta$ be the standard oriented
-  $4$-cell $\Delta_{4}(01234)$ defined in section
-  \ref{subsection/triangulation}. Define a $C$-coloring on
-  $\Delta$ to be a map from the set of oriented $2$-cells of
-  $\Delta$ to $I$.
-  $\beta(-\Delta_{2}) = \beta(\Delta_{2})^{\star}$. A $C$-colored
-  $4$-simplex is a $4$-simplex with a $C$-coloring.
+\noindent Throughout this section, let $C$ to be a coordinated
+premodular category and $I$ be the set of simple $C$-objects.
+
+% \begin{definition}[$C$-colored ($4$-)simplex]\label{def/C-colored-simplex}
+%   Let $C$ be a coordinated premodular category, $I$ be the set
+%   of simple objects in $C$, and $\Delta$ be the standard oriented
+%   $4$-cell $\Delta_{4}(01234)$ defined in section
+%   \ref{subsection/triangulation}. Define a $C$-coloring on
+%   $\Delta$ to be a map from the set of oriented $2$-cells of
+%   $\Delta$ to $I$.
+%   $\beta(-\Delta_{2}) = \beta(\Delta_{2})^{\star}$. A $C$-colored
+%   $4$-simplex is a $4$-simplex with a $C$-coloring.
+% \end{definition}
+
+% \begin{definition}[$C$-colored triangulation]\label{def/C-colored-triangulation}
+%   Let $C$ be a coordinated premodular category, $I$ be the set
+%   of simple objects in $C$, $X$ be a closed oriented $4$-manifold, and
+%   $T$ be an (oriented) triangulation of $X$. A $C$-coloring of
+%   $T$ is an assignment for each $4$-simplex of $T$ a
+%   $C$-coloring. Define a $C$-colored triangulation to be a
+%   triangulation with a $C$-coloring.
+% \end{definition}
+
+\begin{definition}[colored combinatorial manifold]
+  A $C$-coloring of a combinatorial manifold $X$ is a map
+  $\beta: X_{2} \to I$, where $X_{2}$ denotes the set of oriented
+  $2$-simplices of $X$, such that
+  $\beta(\text{-}x) = \beta(x)^{\star}$ for all $x \in X_{2}$. A
+  $C$-colored combinatorial manifold is a pair of a combinatorial
+  manifold and a $C$-coloring of X.
 \end{definition}
 
-\begin{definition}[$C$-colored triangulation]\label{def/C-colored-triangulation}
-  Let $C$ be a (coordinated) premodular category, $I$ be the set
-  of simples in $C$, $X$ be a closed oriented $4$-manifold, and
-  $T$ be an (oriented) triangulation of $X$. A $C$-coloring of
-  $T$ is an assignment for each $4$-simplex of $T$ a
-  $C$-coloring. Define a $C$-colored triangulation to be a
-  triangulation with a $C$-coloring.
-\end{definition}
-
-\begin{definition}[$10$j symbol for a $C$-colored simplex]\label{def/10j-symbol-for-a-C-colored-simplex}
-  Let $\Delta = (\Delta_{4}(01234), \beta)$ be a $C$-colored
-  simplex. Denote $\beta_{\widehat{ab}}$ to be the color
-  $\beta(\Delta_{2}(\widehat{ab})) \in I$ assigned to the
-  oriented $2$-cell $\Delta_{2}(\widehat{ab})$. We define the
-  $10$j symbol for $\Delta$ to be the (algebraic) $10$j-symbol
+\begin{definition}[$10$j symbol for a colored simplex]\label{def/10j-symbol-for-a-C-colored-simplex}
+  Let $\Delta$ be a $4$-simplex with a total ordering on the set
+  of vertices, and let $\beta$ to be a $C$-coloring for $\Delta$.
+  $C$-colored simplex. Denote $\beta_{\widehat{ab}}$ to be the
+  color $\beta(\Delta_{4}(\widehat{ab})) \in I$ assigned to the
+  oriented $2$-cell $\Delta_{4}(\widehat{ab})$. We define the
+  $10$j symbols for $(\Delta,\beta)$ to be the $10$j-symbols
   (\ref{def/10j-symbol})
   $$
-  10j(\Delta) =
-  \tenJSymbol{\beta_{\widehat{01}}}{\beta_{\widehat{02}}}{\beta_{\widehat{03}}}{\beta_{\widehat{04}}} {\beta_{\widehat{12}}}{\beta_{\widehat{13}}}{\beta_{\widehat{14}}} {{\beta_{\widehat{23}}}{\beta_{\widehat{24}}}{\beta_{\widehat{34}}}}.
+  10j(\Delta) = \tenJSymbol{\beta_{\widehat{01}}}{\beta_{\widehat{02}}}{\beta_{\widehat{03}}}{\beta_{\widehat{04}}} {\beta_{\widehat{12}}}{\beta_{\widehat{13}}}{\beta_{\widehat{14}}} {{\beta_{\widehat{23}}}{\beta_{\widehat{24}}}{\beta_{\widehat{34}}}}, \quad
+  \overline{10j}(\Delta) = \tenJSymbolMirrored{\beta_{\widehat{01}}}{\beta_{\widehat{02}}}{\beta_{\widehat{03}}}{\beta_{\widehat{04}}} {\beta_{\widehat{12}}}{\beta_{\widehat{13}}}{\beta_{\widehat{14}}} {{\beta_{\widehat{23}}}{\beta_{\widehat{24}}}{\beta_{\widehat{34}}}}.
   $$
 \end{definition}
 
 \begin{definition}[Crane-Yetter state sum for a closed
   $4$-manifold]\label{def/crane-yetter-state-sum-for-a-closed-4-manifold}
-  Let $C$ be a (coordinated) premodular category and $X$ a closed
-  $4$-manifold. We define the Crane-Yetter state sum for $X$ to
-  be
-  $$
-  \int_{X}^{CY} C = \ast \left( \bigotimes_{\Delta \in T} 10j(\Delta) \right) \in \mathbb{k},
-  $$
-  [TODO: fix constants (no.. need to redefine the whole thing
-  following Walker)] where $T$ denotes an oriented triangulation
-  of $X$, and $\ast$ denotes the full contraction induced based
-  on the fact that each oriented $3$-simplex is paired with
-  another with opposite orientation.
+  Let $X$ be an connected, oriented, closed piecewise-linear
+  manifold, $\phi: X \xrightarrow{\sim} |K|$ a triangulation,
+  $\beta: K_{2} \to I$ a $C$-coloring of $K$, and $\tau$ a total
+  ordering on the set of vertices of $K$.
+
+  For each $4$-simplex $\Delta$ of $K$, we assign a $10$j-symbol
+  $10J(\beta,\Delta)$ as follows. If the orientation restricted
+  from $X$ agrees with that from $\tau$ (i.e.
+  $[X]|_{\Delta} = \tau|_{\Delta}$, or say of coherent
+  orientation), then we assign
+  $10J(\beta,\Delta) = 10j(\Delta,\beta|_{\Delta})$; otherwise,
+  if $[X]|_{\Delta} = -\tau|_{\Delta}$ (or say decoherent
+  orientation), then we assign
+  $10J(\beta,\Delta) = \overline{10j}(\Delta,\beta_{\Delta})$.
+
+  Now each $4$-simplex has a $10$j-symbol, which is
+  just a linear map. Recall that the oriented $3$-simplices
+  correspond to morphism spaces. We will contract the linear maps
+  (taking a huge trace) using the fact that each $3$-simplex
+  $\Delta'$ is the face of exactly two $4$-simplices. More
+  concretely, observe that there are two cases.
+  \begin{itemize}
+    \item Both of them have coherent (or decoherent) orientations.
+    \item One of them has coherent orientation, while the other
+          has decoherent orientation.
+  \end{itemize}
+  In the first case, the corresponding vertices
+  (\ref{graph/10j-symbol}) of the $C$-colored graphs that underly
+  the assigned $10$j-symbols have the incoming and outgoing
+  arrows exchanged. In the second case, the orientations of the
+  arrows are the same but the colors are dual. Hence in both
+  cases, we can contract the $10$j-symbols along $\Delta'$ as
+  usual (\ref{def/contraction}). Since $X$ is a closed
+  $4$-manifold, the final result is an element in the underlying
+  field (i.e. a number).
+
+  Finally, we define the Crane-Yetter state sum of $X$ to be the
+  number
+  $$\int_{X}^{CY} C \, := \, D^{2(n_{0}\text{-}n_{1})} \sum_{\beta} \prod_{f} dim(\beta(f)) \left(\ast \bigotimes_{\Delta} 10J(\beta;\Delta)\right),$$
+  where $D^{2}$ denotes the global dimension of $C$, $n_{0}$
+  denotes the amount of vertices, $n_{1}$ denotes the amount of
+  edges, the sum runs over all possible $C$-colorings $\beta$ of
+  $K$, the product runs through all faces $f$ of $K$ (recall
+  $dim(x)=dim(x^{\star})$ for all $x$ in $C$), the tensor product
+  runs through all $4$-simplices of $K$, and $\ast$ denotes the
+  large contraction specified above.
+
+  The result only depends on the PL-homeomorphism type of $X$ due
+  to the invariance under Pachner moves. We refer the curious
+  readers to the original paper
+  \cite{crane-yetter/a-categorical-construction-of-4d-tqft}
+  \cite{crane-kauffman-yetter/crane-yetter-state-sum}.
 \end{definition}
 
-\noindent The state sum is independent to the choice of $T$, and
-thus an invariant for closed $4$-manifolds. In fact, it can be
-extended to a fully extended topological quantum field theory
-(\cite[section 1.5]{bjs2018} \cite{cooke2019excision}
+\noindent The original state sum uses $15$j-symbols and therefore
+involves a product running through the $3$-simplices. The term is
+absent here because it is absorbed into the $10$j symbols. The
+state sum is expected to be extended to a fully extended
+topological quantum field theory (\cite[section 1.5]{bjs2018}
+\cite{cooke2019excision}
 \cite{integrating-quantum-groups-over-surfaces}
 \cite{fac-homo--kirillov-tham}). For explicit evaluations of the
-Crane-Yetter model on $4$-manifolds, see
-\cite{barenz/evaluation-crane-yetter}; for general $2$-manifolds
-(category-valued), see \cite{guu/higher-genera-center}.
+Crane-Yetter model see \cite{barenz/evaluation-crane-yetter} (for
+numerical values on $4$-folds) and
+\cite{guu/higher-genera-center} (for categorical values on
+$2$-folds).
 
 \subsection{Shadow state sum} \label{subsection/shadow-state-sum}
 
 Throughout this subsection (\ref{subsection/shadow-state-sum}),
 we fix an orientable shadowed $2$-polyhedron $P$ (over
-$\mathbb{Z}[1/2]$ with boundary), a (coordinated) premodular
-category $C$, and its set of simples $I$. Our goal is to define
-the shadow state sum $\int_{P}^{sh} C$.
+$\mathbb{Z}[\frac{1}{2}]$, with boundary), a coordinated
+premodular category $C$, and its set of simple objects $I$. Our
+goal is to define the shadow state sum $\int_{P}^{sh} C$.
 
 \begin{definition}[module of a trivalent graph]\label{def/module-of-a-trivalent-graph}
-Let $\gamma$ be a trivalent graph. By a $C$-coloring of $\gamma$
-we mean a map $\lambda$ from the set of oriented edges of
-$\gamma$ to the set $I$ of $C$-simples such that
-$\lambda(e) = \lambda(-e)^{\star}$. Denote by $color(\gamma; C)$
-the set of all $C$-colorings of $\gamma$. For each $C$-coloring
-of the trivalent graph $\gamma$, define a $\mathbb{k}$-module
-$$H(\lambda) = \bigotimes_{x} H(i_{x}, i_{x}', i_{x}''),$$
-where $x$ runs through all vertices of $\gamma$ and the $i_{x}$'s
-denote the colors assigned to the nearby edges oriented toward
-$x$. Then define a $\mathbb{k}$-module
-$$H(\gamma) = \bigoplus_{\lambda \in color(\gamma; C)} H(\lambda)$$
-with the convention that $H(G_{0}) = \mathbb{k}$, where $G_{0}$
-denotes the empty graph.
+  Let $K_{0}$ be the empty graph and$\gamma$ be a trivalent
+  graph. A $C$-coloring of $\gamma$ is a map
+  $$\{\mbox{oriented edge of } \gamma\} \xrightarrow{\lambda} I, \quad \mbox{with } \lambda(e) = \lambda(-e)^{\star}.$$
+  Define a $\mathbb{k}$-module
+  $$H(\lambda) = \bigotimes_{x} H(\lambda_{x}, \lambda_{x}', \lambda_{x}''),$$
+  where $H$ denotes the symmetrized modules
+  (\ref{def/symmetrized-multiplicity-module}), $x$ runs through
+  all vertices of $\gamma$ and the $\lambda_{x}$'s denote the
+  colors assigned to the nearby edges oriented toward $x$.
+  Define $\mathbb{k}$-modules
+  $$H(\gamma) = \bigoplus_{\lambda \in color(\gamma; C)} H(\lambda), \quad H(K_{0}) = \mathbb{k},$$
+  where $color(\gamma; C)$ denotes the set of $C$-colorings of
+  $\gamma$.
 \end{definition}
 
 By a $C$-coloring of $P$ we mean a map $\phi$ from the set of
 oriented regions of $P$ to $I$ such that
 $\phi(\Sigma) = \phi(-\Sigma)^{\star}$. Denote by $color(P; C)$
-the set of all $C$-colorings of $P$.
-
-An orientation of a $2$D region induces an orientation on its
-edges by $(\vec{n} \wedge -)$, where $\vec{n}$ denotes a vector
+the set of all $C$-colorings of $P$. An orientation of a $2$D
+region induces an orientation on its edges by
+$(\vec{n} \wedge \text{-})$, where $\vec{n}$ denotes a vector
 pointing outward from the region. Therefore, a $C$-coloring
 $\phi$ of $P$ induces a $C$-coloring $\partial \phi$ of its
-boundary $\partial P$.
+boundary $\partial P$, a trivalent graph.
 
 \begin{definition}[shadow state sum]\label{def/shadow-state-sum}\details{\cite[section X.1.2]{turaev-qiok-3-manifolds}}
-  Every $C$-coloring on the boundary of a $2$-polyhedron extends
-  to some $C$-coloring on it, so
+  Every $C$-coloring on $\partial P$ extends to some $C$-coloring
+  on $P$, so
   $H(\partial P) = \sum_{\phi \in color(P; C)} H(\partial \phi)$.
   Fix a $\phi \in color(P; C)$, and define the following
   $\mathbb{k}$-modules and vectors.
 \begin{itemize}
-  \item For each oriented edge $\vec{e}$ in $P$ that does not lie
-        in $\partial P$, define $H_{\phi}(\vec{e})$ to be
-        $H(i,i',i'')$ where the $i$'s are the colors assigned to
-        the nearby region compatibly oriented with $\vec{e}$.
-  \item For each (unoriented) edge $e$ in $P$ that does not lie
-        in $\partial P$, define $H_{\phi}(e)$ to be the
+  \item For each oriented edge $\vec{e}$ in
+        $P \setminus \partial P$, define $H_{\phi}(\vec{e})$ to
+        be $H(i,i',i'')$ where the $i$'s are the colors assigned
+        to the three adjacent regions compatibly oriented with
+        $\vec{e}$.
+  \item For each (unoriented) edge $e$ in
+        $P \setminus \partial P$, define $H_{\phi}(e)$ to be the
         non-ordered tensor product
-        $H_{\phi}(\vec{e}) \otimes H_{\phi}(-\vec{e})$ with an
-        arbitrary orientation. Use the pairing
-        \ref{def/contraction} to define a canonical vector
+        $H_{\phi}(\vec{e}) \otimes H_{\phi}(\text{-}\vec{e})$
+        with an arbitrary orientation $\vec{e}$. The pairing
+        (\ref{def/contraction}) defines a canonical vector
         $|e|_{\phi} \in H_{\phi}(e)$.
   \item For each tetrahedral point $x \in P$, pick a small enough
-        neighborhood of $x$ in $P$ homeomorphic to the cone of
-        the $1$-skeleton of the boundary of some tetrahedron.
-        Clearly, this is also a $C$-colored $2$-polyhedron with
-        four boundary line points $x_{0}, x_{1}, x_{2}, x_{3}$
-        and six $C$-colored regions. Denote by $\phi_{ij}$ the
-        color for the oriented region
-        $\overrightarrow{xx_{i}x_{j}}$; clearly,
-        $\phi_{ij} = \phi_{ji}^{\star}$. Finally, define the pair
-        of vector and $\mathbb{k}$-module for $x$ to
-        be $$|x|_{\phi} := \normalizedSixJSymbol{\phi_{01}}{\phi_{02}}{\phi_{30}}{\phi_{32}}{\phi_{13}}{\phi_{21}} \in \bigotimes_{i=0}^{3} H_{\phi}(\overrightarrow{x_{i}x}) =: H_{\phi}(x),$$
+        neighborhood $U$ of $x$ in $P$ homeomorphic to the cone
+        of the $1$-skeleton of the boundary of some tetrahedron.
+        The closure $\overline{U}$ a $C$-colored $2$-polyhedron
+        with four boundary line points
+        $x_{0}, x_{1}, x_{2}, x_{3}$ and six $C$-colored regions.
+        Denote by $\phi_{ij}$ the color for the oriented region
+        $\overrightarrow{xx_{i}x_{j}}$ (clearly,
+        $\phi_{ij} = \phi_{ji}^{\star}$). Finally, define a
+        vector and a $\mathbb{k}$-module 
+        $$|x|_{\phi} := \normalizedSixJSymbol{\phi_{01}}{\phi_{02}}{\phi_{30}}{\phi_{32}}{\phi_{13}}{\phi_{21}} \in \bigotimes_{i=0}^{3} H_{\phi}(\overrightarrow{x_{i}x}) =: H_{\phi}(x),$$
         where $\otimes$ denotes the unordered tensor product of
-        $\mathbb{k}$-modules. (Notice that the result is
-        independent to the labeling $0, 1, 2, 3$.)
+        $\mathbb{k}$-modules. The result is independent to the
+        labeling $0, 1, 2, 3$.
 \end{itemize}
 
 \noindent The procedure above defines a vector in the
 $\mathbb{k}$-module
-$$\left( \bigotimes_{x} H_{\phi}(x) \right) \otimes \left( \bigotimes_{e} H_{\phi}(e) \right)$$
-where $x$ runs over the tetrahedral points of $P$ and $e$ runs
-over the (nonoriented) edges of $P$ that does not lie entirely in
-$\partial P$. By contracting the vector along each edge $e$ whose
-boundary points are not both in $\partial P$, we obtain a vector
-in $|\phi| \in H(\partial \phi)$. Finally, we define the shadow state sum
-to be
-$$\int^{sh}_{P} C = D^{-b_{2}(P) - null(P)} \sum_{\phi \in color(P)} \sigma_{\phi} |\phi| \in \sum_{\phi} H(\partial \phi) = H(\partial P),$$
-where $b_{2}$ denotes the second betti number, $null$ denotes the
-nullity (\ref{def/nullity-of-a-shadowed-2-polyhedron}), and
+$$(\otimes_{x} |x|_{\phi}) \otimes (\otimes_{e} |e|_{\phi}) \in \left( \bigotimes_{x} H_{\phi}(x) \right) \otimes \left( \bigotimes_{e} H_{\phi}(e) \right)$$
+where $x$ runs over all tetrahedral points of $P$, and $e$ runs
+over all (nonoriented) edges of $P \setminus \partial P$. By
+contracting the vector along all tetrahedral points $x$ and all
+edges $e$ whose boundary points are not both in $\partial P$, we
+obtain a vector in $|\phi| \in H(\partial \phi)$. Finally, we
+define the shadow state sum to be
+$$\left(\int^{sh}_{P} C \right) = \left( D^{\text{-} b_{2}(P) \text{-} null(P)} \sum_{\phi \in color(P)} \sigma_{\phi} \, |\phi| \right) \in \sum_{\phi} H(\partial \phi) = H(\partial P),$$
+where $D$ denotes the global dimension, $b_{2}$ denotes the
+second betti number, $null$ denotes the nullity
+(\ref{def/nullity-of-a-shadowed-2-polyhedron}), and
 $\sigma_{\phi} \in \mathbb{k}$ is a normalizing constant defined
-assign as
+as
 $$\sigma_{\phi} = \prod_{e} dim_{C}'(\partial\phi(e))^{-1} \prod_{Y} dim_{C}(\phi(Y))^{\chi(Y)} \nu'_{\phi}(Y)^{2gl(Y)} \prod_{g} dim_{\mathbb{k}}(Hom_{C}(V_{0}, V_{i} \otimes V_{j} \otimes V_{k})),$$
 where $e$ runs over edges of $\partial P$ (but not circle
 $1$-strata), $Y$ runs over regions of $X$, $g$ runs over circle
@@ -934,12 +1063,12 @@ characteristics.
   For invariance under basic shadow moves, the essential
   ingredients are the orthonormality relation, the Racah
   identity, and the Biedenharn-Elliott identity
-  (\ref{prop/basic-equalities-of-6j-symbols}). See \cite[theorem
+  (\ref{prop/basic-equalities-of-6j-symbols}); see \cite[theorem
   X.2.1]{turaev-qiok-3-manifolds} for a proof. For invariance
   under addition of $S^{2}_{0}$, it boils down to proving the
   addition formula $$|P_{1} + P_{2}| = |P_{1}| \otimes |P_{2}|$$
   \cite[theorem X.2.2]{turaev-qiok-3-manifolds} and using the
-  equality $|S^{2}_{0}| = D^{-2} \sum_{i \in I} dim(i)^{2} = 1$.
+  equality $|S^{2}_{0}| = D^{\text{-}2} \sum_{i \in I} dim(i)^{2} = 1$.
   Both proofs carry through verbatim to the premodular case.
 \end{proof}
 
@@ -947,26 +1076,13 @@ characteristics.
 % important for expositing.
 
 \begin{definition}[shadow state sum of a $4$-manifold]\label{def/shadow-state-sum-of-a-4-manifold}
-  Let $X$ be a closed $4$-manifold, $C$ a (coordinated)
-  premodular category, $stab([P])$ a stable shadow of $X$
-  represented by a shadowed $2$-polyhedron $P$. Define the shadow
-  state sum $\int_{X}^{sh} C$ of $X$ to be $\int_{P}^{sh} C$. It
-  is well-defined by \ref{remark/stable-shadow-of-a-4-manifold}
-  and
-  \ref{proposition/shadow-state-sum-is-invariant-under-stable-shadow-move}.
+  Let $X$ be a closed $4$-manifold, $C$ a coordinated premodular
+  category, $stab([P])$ a stable shadow of $X$ represented by a
+  shadowed $2$-polyhedron $P$. Define the shadow state sum
+  $\int_{X}^{sh} C$ of $X$ to be $\int_{P}^{sh} C$, which is
+  well-defined by \ref{remark/stable-shadow-of-a-4-manifold} and
+  \ref{prop/shadow-state-sum-is-invariant-under-stable-shadow-move}.
 \end{definition}
-
-\begin{proposition}[shadow state sum is local]\label{prop/shadow-state-sum-is-local}
-  [TODO: need to fix the CY state sum first.. and I need to prove
-  this by myself as it doesn't seem to be proven in Turaev's
-  book.]
-\end{proposition}
-
-\noindent We end the subsection with the key lemma.
-
-\begin{lemma}[$10$j symbol as a shadow state sum]\label{lemma/10j-symbol-as-shadow-state-sum}
-  [TODO: include many graphics]
-\end{lemma}
 
 \subsection{Main result: equivalence of state sums}
 
@@ -974,87 +1090,119 @@ characteristics.
 \ref{subsection/a-summary-to-experts} for the main idea of the
 proof.
 
-\begin{theorem}[equivalence of state sums]
-  Let $X$ be a closed $4$-manifold and $C$ be a (coordinated)
+\begin{theorem}[equivalence of state sums]\label{theorem/main-theorem}
+  Let $X$ be a closed $4$-manifold and $C$ be a coordinated
   premodular category. Then
   $$\int^{CY}_{X}C = \int^{sh}_{X} C.$$
   Namely, their Crane-Yetter state sum and shadow state sum are
   equal.
 \end{theorem}
 
+\begin{remark}
+  The Witten-Reshetikhin-Turaev (quantum Chern-Simons) model is
+  known to be the boundary theory of Crane-Yetter model. It is
+  also shown that the former is the boundary theory of the shadow
+  TQFT \cite[X.3.2 \& theorem X.3.3]{turaev-qiok-3-manifolds}.
+  Therefore, theorem \ref{theorem/main-theorem} provides another
+  proof for the first fact.
+\end{remark}
+
 \begin{proof}
-  Let $\epsilon > 0$ (very small), $T$ be a triangulation of $X$,
-  and $H = \bigcup_{i=0}^{4} H_{i}$ be a dual handle
-  decomposition in which the attaching region of each $1$-handle
-  on each $0$-handle is the $\epsilon$-ball ($3$-dimensional) of
-  the central point of corresponding $3$-cell. (This makes sense
-  because we have realized the standard $4$-cell as a subspace of
-  the standard $\mathbb{R}^{5}$ in
-  (\ref{subsection/triangulation}).) To compute the shadow state
-  sum, we first need to construct a shadow for $X$. We will
-  construct it by the procedure given in
-  \ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition} as
-  the resulting shadow will resemble the structure of $T$.
+  Fix a small $\epsilon > 0$.
 
-  Suppose $T$ has $n$ $4$-cells. Let $\Delta$ be a $4$-cell in
-  $T$. It corresponds to a $0$-handle $h_{0}$. Each of the
-  $3$-cell $\delta$ among the five in $\partial \Delta$
-  corresponds to (a half of) a $1$-handle $h_{1}$, which is glued
-  to $h_{0}$. Hence $H_{0} \cup H_{1}$ is a solid $4$-body with
-  $n$ $0$-cells and $\frac{5n}{2}$ $1$-cells. The $3$-manifold
-  $Y = \partial(H_{0} \cup H_{1})$ in the
-  construction \ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition}
-  is therefore homeomorphic to the space constructed as follows:
-  First take the union of $n$ $3$-spheres identified to the
-  $0$-cells, and connected sum any pair of them if and only if
-  the corresponding $0$-cells are connected by $1$-cells. It is
-  also homeomorphic to a union of $n$ $S^{3} - B^{3} \times 5$
-  (denoted by $S_{0,5}$) with obvious parts that overlap, where
-  the $B^{3}$ can be identified as the $\epsilon$-ball introduced
-  above.
+  We begin by computing the shadow state sum for $X$. First, fix
+  a triangulation $T$ for $X$. Denote by $T_{i}$ to be the set of
+  $i$-cells of $T$, and fix a total ordering on $T_{0}$. Recall
+  that the ordering induces an orientation of each $4$-cell. If
+  it agrees with the orientation from $X$, we call it an
+  coherently oriented cell; otherwise a decoherently oriented
+  cell. From $T$ we will construct a shadow of a similar
+  ``shape''. Indeed, the dual of the any triangulation provides a
+  handle decomposition $H$, in which each $k$-cell corresponds to
+  an $(n-k)$-handle. The construction in
+  (\ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition})
+  constructs a shadow for $X$, as follows.
 
-  Following the construction, we will construct a skeleton for
-  the $3$-manifold $Y$. The construction will be first carried
-  out locally in each $S_{0,5}$, and then glued together with
-  some modification:
+  Take the union of the $0$-handles and the $1$-handles. Its
+  boundary $Y$ is a connected sum of $|T_{0}|$ $3$-spheres. By
+  (\ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition}
+  and \ref{def/shadow-cone-of-a-framed-link-in-a-3-manifold}), we
+  need to pick a skeleton of $Y$. We will construct a very
+  concrete one as follows. Within each $4$-simplex $\Delta$,
+  $Y \cap \Delta$ is $S^{3} \setminus (5 \times B^{3})$. Think of
+  this as
+  $\mathbb{R}^{3} \setminus \bigcup_{\vec{v}} B_{\epsilon}(\vec{v})$,
+  where $B_{r}(x)$ denotes the ball of radius $r$ centered at
+  $x$, and $\vec{v}$ runs through the set
+  $\{(1,0,0), (0,1,0), (\text{-}1,0,0), (0,\text{-}1,0)\}$.
+  Denote $S^{1}(\vec{v})$ to be the equator dual to $\vec{v}$ of
+  each $2$-sphere
+  $S^{2}(\vec{v}) := \partial B_{\epsilon}(\vec{v})$. The largest
+  component of
+  $B_{0}(1) \setminus \left(\bigcup_{\vec{v}}S^{1}(\vec{v})\right)$
+  is a $4$-punctured $2$-sphere. Finally, remove an
+  $\epsilon$-disk centered at $(0,0,1)$ from it, and let the
+  boundary straightly stretch to $(0,0,+\infty)$; this is a
+  $5$-punctured $2$-sphere $\Sigma$, which is a local skeleton
+  for $Y$.
 
-  \begin{enumerate}
-    \item In each $S_{0,5}$, fix a $3$-ball $B$ of size
-          $\epsilon$ such that the following condition holds. For
-          each removed $B^{3}$, pick a shortest path from its
-          center to the center of $B$. Thicken each path to have
-          width radius $\frac{\epsilon}{2}$. We require that the
-          five thicken paths do not intersect each other. The
-          boundary of the union is a $5$-punctured sphere
-          $\Sigma_{0,5}$ in $S_{0,5}$.
-    \item Identify arbitrarily the end of a $5$-punctured sphere
-          (a circle) with the end of another $5$-punctured sphere
-          (another circle) if this pair corresponds to the same
-          $1$-handle.
-    \item For each identified circle, glue a $2$-disk along its
-          boundary.
-  \end{enumerate}
+  To continue following
+  (\ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition}),
+  we need to project to the links (the gluing data of the
+  $2$-handles in $Y$) to $\Sigma$. It is a geometric exercise to
+  construct a projection so that the projected diagrams look as
+  follows
 
-  The resulting polyhedron $P$ is simple and orientable.
-  Moreover, its complement in $Y$ is a union of open $3$-balls.
-  Therefore, $P$ is a skeleton for the $3$-manifold $Y$ as
-  desired.
+  \begin{center}
+    \includegraphics[height=6cm]{main-shadow}
+  \end{center}
 
-  The next step in the construction
-  (\ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition}) is
-  to project the link $l \subset Y$ as the gluing datum of
-  $H_{2}$ onto $\partial(H_{0} \cup H_{1})$. As the handle
-  decomposition $H$ comes from a triangulation, the links are
-  identical in each local piece $S^{3} - B^{3} \times 5$. A
-  simple geometric exercise shows that a generic projection of
-  $l$ onto $P$ looks as follows (with gleams added as in the
-  construction
-  \ref{def/shadow-of-a-4-manifold-from-a-handle-decomposition}).
+  \noindent depending on whether the $4$-cell is coherently
+  oriented or not. The construction then cones the projected
+  links, and assigns gleams around each intersection of links on
+  $\Sigma$. This encodes a local piece of the complete shadow,
+  which is a gleamed $2$-polyhedron $P$ without boundary.
+  However, $P$ also looks the same locally within each
+  $4$-simplex (up to mirror), so for simplicity we will keep
+  working locally.
 
-  \noindent [TODO: Add graphic [20220217T143000 (1)]]
+  The shadow state sum, locally, is represented by the following
+  diagram and its mirrored image.
 
-  Using \ref{prop/shadow-state-sum-is-local}, it remains to show
-  that the shadow state sum of the (local) shadow depicted above
-  coincides with the $10$j symbol. This is exactly what the key
-  lemma \ref{lemma/10j-symbol-as-shadow-state-sum} shows, which completes the proof.
+  \begin{center}
+    \includegraphics[height=11cm]{main-shadow-state-sum-1}
+  \end{center}
+
+  \noindent where each of the $5$ tetrahedral graphs is obtained
+  by the $6$j-symbol twisted with the $4$ gleams around the
+  corresponding tetrahedral point. The vertices in the graph are
+  acutally colored by elements of the bases and dual bases of the
+  morphism spaces. We contract them and obtain the following
+  diagram.
+
+  \begin{center}
+    \includegraphics[height=11cm]{main-shadow-state-sum-2}
+  \end{center}
+
+  \noindent % Using 2 lemmas (cite TODO??), ..
+  We can further contract each theta graph to the central
+  component using the following procedure.
+
+  \begin{center}
+    \includegraphics[height=18cm]{main-workaround}
+  \end{center}
+  \noindent Repeat for five times, and the result is the
+  following
+
+  \begin{center}
+    \includegraphics[height=11cm]{main-shadow-state-sum-3}
+  \end{center}
+
+  \noindent This is almost the $10$j-symbol involved in the
+  definition of the $\int_{X}^{CY} C$, except the extra edges
+  labeled by $b, d, f, h ,j, l$. However, after contracting the
+  local pieces together, the extra edges form unlinks (colored by
+  the regular coloring $\Omega = \sum_{i\in I}dim(i)i$) and
+  therefore can be viewed as a factor $D^{2}$ and removed from
+  the diagram. The rest of the proof is by counting.
 \end{proof}
