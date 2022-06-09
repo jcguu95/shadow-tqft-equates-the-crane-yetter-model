@@ -1,5 +1,3 @@
-(This work is under construction.)
-
-Structure is given in `main.tex`.
+This branch contains the source to be submitted to arXiv.
 
 To make the document, run `$ make`.
