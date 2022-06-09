@@ -11,7 +11,7 @@ read:
 compile-and-read: pdflatex read
 
 clean:
-	rm -f ${filename}.{ps,log,aux,out,dvi,bbl,blg,bcf,xml,run.xml,toc}
+	rm -f ${filename}.{ps,log,aux,out,dvi,blg,bcf,xml,run.xml,toc}
 	rm -f texput.log
 
 all: pdflatex clean
