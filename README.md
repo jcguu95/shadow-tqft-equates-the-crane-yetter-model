@@ -1,5 +1,5 @@
-(This work is under construction.)
+The document of this branch was submitted to J. of Knot Theory & Its
+Ramifications (JKTR) on [2022-10-02]. 
 
-Structure is given in `main.tex`.
-
-To make the document, run `$ make`.
+I made a copy of this directory, remove the .git subdirectory, include .bbl
+file, and make sure the order of the files on the web GUI is correct.
