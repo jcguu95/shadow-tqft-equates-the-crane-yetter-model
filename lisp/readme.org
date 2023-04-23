@@ -1,0 +1,3 @@
+Configure =*source-dir*= and quickload the system. This loads the
+function =#'write-and-compile= which writes and compiles a tex
+file to our desired pdf.

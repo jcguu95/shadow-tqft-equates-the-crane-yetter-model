@@ -4,9 +4,7 @@
   "/Users/jin/.+PLUGS/storage-local/academics/research/shadow-tqft-equates-the-crane-yetter-model/lisp")
 
 (defparameter *latex-content*
-  (concatenate 'string
-               *header*
-               *body*))
+  (i (#\Newline) *header* *body*))
 
 (unless (probe-file *source-dir*)
   (error "Source dir not found!"))
