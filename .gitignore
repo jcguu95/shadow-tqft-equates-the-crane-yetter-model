@@ -5,6 +5,7 @@
 !.gitignore
 !*.md
 !*.tex
+!*.lisp
 !*.bib
 !*.png
 !*.jpg
